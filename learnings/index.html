@@ -1,0 +1,3047 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bigmonks Learning | Professional IT Training & Courses in Kerala</title>
+    <meta name="description" content="Master in-demand tech skills with Bigmonks Learning. Comprehensive courses in Flutter, Python, MERN Stack, UI/UX Design, AI/ML, Data Science, and more. Expert-led training with hands-on projects.">
+    <meta name="keywords" content="Flutter training Kerala, Python course, MERN Stack course, UI/UX design course, AI ML training, Data Science course, IT training Ernakulam, coding bootcamp Kerala">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon/favicon.ico" sizes="any">
+    <link rel="icon" href="../img/favicon/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../img/favicon/manifest.webmanifest">    
+    
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="../css/loaders/loader.css">
+    <link rel="stylesheet" type="text/css" href="../css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    
+    <!-- Custom UI Enhancement Styles -->
+    <style>
+    /* WhatsApp Button Styles */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      animation: pulse-whatsapp 2s infinite;
+    }
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1);
+      animation: none;
+    }
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 70px;
+      background-color: #128c7e;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* ============================================================
+       COURSE FILTER NAVIGATION
+    ============================================================ */
+    .filters-block {
+      text-align: center;
+    }
+    .filter-tabs {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.5rem;
+      border-radius: 4rem;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .filter-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 0.85rem 2.4rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-family: var(--_font-default);
+      letter-spacing: 0.02em;
+      border-radius: 3rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      outline: none;
+      white-space: nowrap;
+    }
+    .filter-tab:hover {
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .filter-tab:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.4);
+      outline-offset: 2px;
+    }
+    .filter-tab.active {
+      background: #fff;
+      color: #0a0a0a !important;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    }
+    .filter-tab.active:hover {
+      background: #f0f0f0;
+      color: #0a0a0a !important;
+    }
+
+    /* ============================================================
+       COURSE CARDS — PREMIUM REDESIGN
+    ============================================================ */
+
+    /* Card items */
+    .cards__item.grid-item {
+      position: static;
+      overflow: visible !important;
+    }
+
+
+    /* Card shell */
+    .cards__card {
+      height: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+      background: rgba(255, 255, 255, 0.02) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 2rem !important;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                  box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                  border-color 0.4s ease,
+                  background 0.4s ease !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255,255,255,0.04);
+      overflow: hidden !important; /* contain background gradients */
+      position: relative;
+    }
+
+    /* Category-specific top accent line */
+    .cards__card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 1px;
+      border-radius: 0 0 4px 4px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .cards__card.dev-card::before {
+      background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+    }
+    .cards__card.design-card::before {
+      background: linear-gradient(90deg, transparent, #ec4899, transparent);
+    }
+    .cards__card.data-ai-card::before {
+      background: linear-gradient(90deg, transparent, #c084fc, transparent);
+    }
+    .cards__card:hover::before {
+      opacity: 1;
+    }
+
+    /* Hover states */
+    .cards__card:hover {
+      transform: translateY(-6px) !important;
+      background: rgba(255, 255, 255, 0.035) !important;
+    }
+    .cards__card.dev-card:hover {
+      box-shadow: 0 20px 50px rgba(56, 189, 248, 0.1), 0 4px 24px rgba(0, 0, 0, 0.2);
+      border-color: rgba(56, 189, 248, 0.25) !important;
+    }
+    .cards__card.design-card:hover {
+      box-shadow: 0 20px 50px rgba(236, 72, 153, 0.1), 0 4px 24px rgba(0, 0, 0, 0.2);
+      border-color: rgba(236, 72, 153, 0.25) !important;
+    }
+    .cards__card.data-ai-card:hover {
+      box-shadow: 0 20px 50px rgba(168, 85, 247, 0.1), 0 4px 24px rgba(0, 0, 0, 0.2);
+      border-color: rgba(168, 85, 247, 0.25) !important;
+    }
+
+    /* Card body — the flex-growing content area */
+    .cards__descr {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 3rem 2rem 3rem !important;
+    }
+
+    /* Category label */
+    .course-category-tag {
+      display: inline-block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      transition: opacity 0.3s ease;
+    }
+    .dev-card .course-category-tag { color: #38bdf8; }
+    .design-card .course-category-tag { color: #ec4899; }
+    .data-ai-card .course-category-tag { color: #c084fc; }
+
+    /* Icon container */
+    .course-icon-container {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.4rem;
+      margin-bottom: 2.4rem;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+    }
+    .cards__card:hover .course-icon-container {
+      transform: scale(1.08) rotate(4deg);
+    }
+    .dev-icon-bg {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+    }
+    .design-icon-bg {
+      background: rgba(236, 72, 153, 0.1);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      color: #ec4899;
+    }
+    .data-ai-icon-bg {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      color: #c084fc;
+    }
+
+    /* Card title */
+    .cards__card .cards__title {
+      font-size: clamp(1.9rem, 2.2vw, 2.4rem) !important;
+      font-weight: 700 !important;
+      line-height: 1.25 !important;
+      color: var(--t-bright) !important;
+      margin-bottom: 1.4rem !important;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Card description text */
+    .cards__card .cards__text {
+      font-size: 1.45rem !important;
+      line-height: 1.65 !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      margin-bottom: 0 !important;
+      flex-grow: 1;
+    }
+
+    /* Meta details section */
+    .course-meta-details {
+      margin-top: 2.4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    /* Technology badges */
+    .course-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .cards__card.dev-card:hover .course-badge {
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.06);
+    }
+    .cards__card.design-card:hover .course-badge {
+      border-color: rgba(236, 72, 153, 0.3);
+      color: #ec4899;
+      background: rgba(236, 72, 153, 0.06);
+    }
+    .cards__card.data-ai-card:hover .course-badge {
+      border-color: rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+      background: rgba(168, 85, 247, 0.06);
+    }
+
+    /* Project & Internship info */
+    .course-project-info {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 1.4rem;
+    }
+    .course-project-info div {
+      font-size: 1.35rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .course-project-info strong {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+    }
+
+    /* Card footer */
+    .course-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem 2.8rem 3rem;
+      margin-top: auto;
+      flex-shrink: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Duration/level chip */
+    .course-meta-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       CARD "EXPLORE" BUTTON — COMPACT CTA OVERRIDE
+       Resets the hero-sized .btn-default to a compact pill button
+       that fits cleanly inside the card footer.
+    ============================================================ */
+    .course-card-footer .btn.btn-default.hover-default {
+      /* Reset hero sizing */
+      width: auto !important;
+      height: auto !important;
+      min-height: 4.4rem !important;
+      padding: 0 2.4rem !important;
+
+      /* Compact line-height — not the 10rem hero value */
+      font-size: 1.4rem !important;
+      font-weight: 600 !important;
+      line-height: 4.4rem !important;
+      letter-spacing: 0.04em !important;
+      white-space: nowrap !important;
+
+      /* Keep the rounded pill shape */
+      border-radius: 2.5rem !important;
+
+      /* Brand palette: white border, transparent fill → invert on hover */
+      background-color: transparent !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+
+      /* Positioning & layout */
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 !important;
+      flex-shrink: 0 !important;
+
+      /* Smooth transition */
+      transition: background-color 0.25s ease,
+                  border-color 0.25s ease,
+                  color 0.25s ease,
+                  transform 0.25s ease !important;
+    }
+
+    /* Hover: fill with white → dark text */
+    .course-card-footer .btn.btn-default.hover-default:hover {
+      background-color: #fff !important;
+      border-color: #fff !important;
+      color: #0a0a0a !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Focus ring for accessibility */
+    .course-card-footer .btn.btn-default.hover-default:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.5) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* The .btn-caption inside the explore button */
+    .course-card-footer .btn .btn-caption {
+      position: static !important;
+      display: inline !important;
+      white-space: nowrap !important;
+    }
+
+    /* Suppress the hover-default ::before / ::after pseudo overlay
+       inside the card footer (it causes the clipping animation) */
+    .course-card-footer .hover-default::before,
+    .course-card-footer .hover-default::after {
+      display: none !important;
+    }
+
+    /* Suppress em icon element that creates the circle overlay */
+    .course-card-footer .btn em {
+      display: none !important;
+    }
+
+
+    /* ============================================================
+       POPUP MODAL — PREMIUM REDESIGN
+    ============================================================ */
+
+    /* Popup wrapper */
+    .popup {
+      position: relative;
+      background: #0f0f12 !important;
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.04);
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden !important;
+    }
+
+    /* Scrollable body */
+    .popup__container {
+      overflow-y: auto;
+      flex: 1;
+      width: 100%;
+      overscroll-behavior: contain;
+    }
+    .popup__container::-webkit-scrollbar {
+      width: 4px;
+    }
+    .popup__container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .popup__container::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    /* Close button */
+    .mfp-close {
+      width: 40px !important;
+      height: 40px !important;
+      line-height: 40px !important;
+      top: 1.4rem !important;
+      right: 1.4rem !important;
+      background: rgba(255, 255, 255, 0.06) !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      transition: all 0.2s ease !important;
+      opacity: 1 !important;
+      font-size: 2.2rem !important;
+      z-index: 10 !important;
+    }
+    .mfp-close:hover {
+      background: rgba(255, 255, 255, 0.14) !important;
+      color: #fff !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      transform: scale(1.08) !important;
+    }
+
+    /* Popup header — compact & premium */
+    .popup-header {
+      padding: 3.5rem 3.5rem 3rem 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      position: relative;
+      flex-shrink: 0;
+    }
+    @media only screen and (max-width: 767px) {
+      .popup-header {
+        padding: 3rem 2.4rem 2.5rem 2.4rem;
+      }
+    }
+
+    /* Popup course label */
+    .popup-course-eyebrow {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    /* Popup title — properly sized, NOT giant */
+    .popup-title {
+      font-size: clamp(2.4rem, 4vw, 3.6rem) !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      color: #fff !important;
+      margin: 0 0 2rem 0 !important;
+      letter-spacing: -0.02em;
+    }
+
+    /* Popup header meta badges */
+    .popup-header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .popup-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Popup content sections */
+    .popup-section {
+      padding: 3rem 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 !important;
+    }
+    @media only screen and (max-width: 767px) {
+      .popup-section {
+        padding: 2.5rem 2.4rem;
+      }
+    }
+    .popup-section:last-child {
+      border-bottom: none;
+      padding-bottom: 4rem;
+    }
+
+    /* Section label */
+    .popup-section-label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1.6rem;
+      display: block;
+    }
+
+    /* Section body text */
+    .popup-body-text {
+      font-size: 1.55rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    /* Module list */
+    .popup-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 1.2rem;
+      margin: 0;
+    }
+    .popup-list li {
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.6;
+    }
+    .popup-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+    .popup-list li strong {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+    }
+
+    /* Tech badge in popup (distinct from card badges) */
+    .popup-tech-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.3rem;
+      border-radius: 2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.8);
+      white-space: nowrap;
+    }
+    .popup-tech-badge.accent {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.09);
+      color: #fff;
+    }
+
+    /* Two-col info grid (career / outcomes) */
+    .popup-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media only screen and (max-width: 600px) {
+      .popup-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .popup-info-block {}
+    .popup-info-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .popup-info-value {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* Popup CTA section */
+    .popup-cta-section {
+      padding: 2.5rem 3.5rem 3.5rem 3.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+    @media only screen and (max-width: 767px) {
+      .popup-cta-section {
+        padding: 2rem 2.4rem 2.8rem 2.4rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .popup-cta-label {
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+    }
+    .popup-cta-label span {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 0.3rem;
+    }
+
+    /* ============================================================
+       POPUP "ENROLL NOW" BUTTON — HIGH CONTRAST PRIMARY CTA
+       Solid white fill on dark background = maximum contrast.
+    ============================================================ */
+    .popup-cta-section .btn.btn-default.hover-default {
+      /* Reset hero sizing */
+      width: auto !important;
+      height: auto !important;
+      padding: 0 3.2rem !important;
+      min-height: 5.2rem !important;
+      line-height: 5.2rem !important;
+
+      /* Typography */
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      white-space: nowrap !important;
+
+      /* High contrast: solid white background with near-black text */
+      background-color: #ffffff !important;
+      border: 1px solid #ffffff !important;
+      color: #0a0a0a !important;
+
+      /* Rounded pill */
+      border-radius: 3rem !important;
+
+      /* Layout */
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      margin: 0 !important;
+
+      /* Premium shadow for depth on dark background */
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15) !important;
+
+      /* Smooth transitions */
+      transition: background-color 0.25s ease,
+                  box-shadow 0.25s ease,
+                  transform 0.25s ease !important;
+    }
+
+    /* Hover: slight lift + glow */
+    .popup-cta-section .btn.btn-default.hover-default:hover {
+      background-color: #f0f0f0 !important;
+      border-color: #f0f0f0 !important;
+      color: #0a0a0a !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2) !important;
+    }
+
+    /* Focus ring */
+    .popup-cta-section .btn.btn-default.hover-default:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.6) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* Popup CTA btn-caption */
+    .popup-cta-section .btn .btn-caption {
+      position: static !important;
+      display: inline !important;
+      white-space: nowrap !important;
+      color: #0a0a0a !important;
+    }
+
+    /* Suppress circular hover overlay in popup CTA */
+    .popup-cta-section .hover-default::before,
+    .popup-cta-section .hover-default::after {
+      display: none !important;
+    }
+
+    /* Suppress em icon */
+    .popup-cta-section .btn em {
+      display: none !important;
+    }
+
+
+
+    /* ============================================================
+       FORM SELECT FIELD
+    ============================================================ */
+    .form-select-enhanced {
+      position: relative;
+      display: block;
+      width: 100%;
+      border: none !important;
+      outline: none !important;
+      margin: 0;
+      padding: 1.6rem 0.4rem;
+      background-color: transparent !important;
+      border-bottom: 1px solid var(--stroke-elements) !important;
+      font: normal 400 1.8rem var(--_font-default) !important;
+      color: var(--t-bright) !important;
+      border-radius: 0 !important;
+      cursor: pointer;
+      height: auto;
+      transition: border-color var(--_animspeed-medium) var(--_animbezier);
+      -webkit-appearance: none;
+    }
+    .form-select-enhanced:focus {
+      border-bottom: 1px solid var(--stroke-controls) !important;
+    }
+    .form-select-enhanced option {
+      background: var(--base, #141414);
+      color: var(--t-bright) !important;
+    }
+    @media only screen and (min-width: 768px) {
+      .form-select-enhanced { font-size: 2rem !important; }
+    }
+    @media only screen and (min-width: 1400px) {
+      .form-select-enhanced { font-size: 2.2rem !important; }
+    }
+    @media only screen and (min-width: 1600px) {
+      .form-select-enhanced { font-size: 2.6rem !important; }
+    }
+
+    /* ============================================================
+       FILTER ANIMATION HELPERS
+    ============================================================ */
+    .grid-item {
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .grid-item.fade-out {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+      position: absolute;
+      z-index: -1;
+    }
+
+    /* ============================================================
+       ACCESSIBILITY
+    ============================================================ */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    
+
+    </style>
+</head>
+<body>
+
+  <!-- Loader Start -->
+  <div id="loader" class="loader">
+    <div class="loader__wrapper">
+      <div class="loader__content">
+        <div class="loader__count">
+          <span class="count__text">0</span>
+          <span class="count__percent">%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Loader End -->
+
+    <!-- Header Start -->
+    <header id="header" class="header d-flex justify-content-center loading__fade">
+      <div class="header__navigation d-flex justify-content-start">
+        <nav id="menu" class="menu">
+          <ul class="menu__list d-flex justify-content-start">
+            <li class="menu__item">
+              <a class="menu__link btn nav-link" href="/" aria-label="Home page">
+                <span class="menu__caption">Home</span>
+                <i class="ph ph-squares-four"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn nav-link" href="#courses" aria-label="Our Popular Tech Courses">
+                <span class="menu__caption">Courses</span>
+                <i class="ph ph-book-open"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn nav-link" href="#programs" aria-label="Flexible Learning Program Paths">
+                <span class="menu__caption">Programs</span>
+                <i class="ph ph-graduation-cap"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn nav-link" href="#workflow" aria-label="Internship workflow roadmap">
+                <span class="menu__caption">Roadmap</span>
+                <i class="ph ph-git-merge"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn nav-link" href="#faq" aria-label="Frequently Asked Questions">
+                <span class="menu__caption">FAQ</span>
+                <i class="ph ph-question"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn nav-link" href="#contact" aria-label="Enrollment Request Form">
+                <span class="menu__caption">Enroll</span>
+                <i class="ph ph-envelope"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Fixed Logo Start -->
+    <div class="logo loading__fade">
+      <a href="/" class="logo__link" style="display: block;">
+        <div class="logo-text" style="font-size: 30px;">bigmonks</div>
+        <div class="logo-subtext" style="font-size: 17px; text-align: right;">Learnings</div>
+      </a>
+    </div>
+    <!-- Fixed Logo End -->
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918848806406?text=Hi%20Bigmonks!%20I'm%20interested%20in%20your%20training%20programs." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+      <i class="ph-fill ph-whatsapp-logo"></i>
+      <span class="whatsapp-tooltip">Enroll Now</span>
+    </a>
+
+    <!-- Page Content Start -->
+    <main id="page-content" class="page-content">
+
+      <!-- Hero Section Start -->
+      <section id="home" class="main home">
+        <div class="main__intro intro-95-desktop">
+          <div class="container-fluid p-0 fullheight-desktop">
+            <div class="row g-0 fullheight-desktop align-items-xl-stretch">
+              <div class="col-12 col-xl-2"></div>
+              <div class="col-12 col-xl-8 fullheight-desktop">
+                <div id="headline" class="headline headline-95-desktop d-flex align-items-start flex-column loading-wrap">
+                  <h1 class="headline__title loading__item">Learn. Build. Transform.</h1>
+                  <p class="headline__subtitle space-top animated-type loading__item">
+                    Master the most <b>in-demand tech skills</b> with industry experts at <b>Bigmonks Learning</b>.
+                    <br>
+                    Build your career in
+                    <span id="typed-strings">
+                      <b>Flutter Development</b>
+                      <b>Python Programming</b>
+                      <b>MERN Stack Development</b>
+                      <b>UI/UX Design</b>
+                      <b>Digital Marketing</b>
+                      <b>Cybersecurity</b>
+                      <b>AI & Machine Learning</b>
+                      <b>Data Science</b>
+                    </span>
+                    <span id="typed"></span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intro Blockquote -->
+        <div class="main__media media-stack-bottom">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12 col-xl-2"></div>
+              <div class="col-12 col-xl-8">
+                <div class="content__block large-text-block pre-stack">
+                  <div class="container-fluid p-0">
+                    <div class="row g-0">
+                      <div class="col-12">
+                        <blockquote class="reveal-type animate-in-up">
+                          Education is not the learning of facts, but the training of the mind to think. Join our hands-on programs designed by industry professionals.
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Hero Section End -->
+
+      <!-- Contact/Enrollment Section Start -->
+      <section id="programs" class="inner inner-grid-bottom about">
+        <div class="inner__wrapper">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12 col-xl-2">
+                <div class="inner__name">
+                  <div class="content__block name-block">
+                    <span class="section-name icon-right animate-in-up">
+                      <span class="section-name-caption">Programs</span>
+                      <i class="ph ph-arrow-down-right"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="inner__content">
+
+                  <div class="content__block section-text-title">
+                    <div class="block__descr">
+                      <h2 class="reveal-type animate-in-up">Flexible Learning<br>Paths for Everyone</h2>
+                    </div>
+                  </div>
+
+                  <!-- Programs Cards -->
+                  <div class="content__block grid-block">
+                    <div class="achievements d-flex flex-column flex-md-row align-items-md-stretch">
+                      
+                      <div class="achievements__item d-flex flex-column grid-item animate-card-3">
+                        <div class="achievements__card">
+                          <p class="achievements__number animate-in-up"><i class="ph ph-student"></i></p>
+                          <h3 class="achievements__descr animate-in-up">Internship Program</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">3-6 months hands-on training with real projects, mentorship, and completion certificate</p>
+                        </div>
+                      </div>
+
+                      <div class="achievements__item d-flex flex-column grid-item animate-card-3">
+                        <div class="achievements__card">
+                          <p class="achievements__number animate-in-up"><i class="ph ph-graduation-cap"></i></p>
+                          <h3 class="achievements__descr animate-in-up">Professional Courses</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">Structured 8-16 week programs with certifications for career advancement</p>
+                        </div>
+                      </div>
+
+                      <div class="achievements__item d-flex flex-column grid-item animate-card-3">
+                        <div class="achievements__card">
+                          <p class="achievements__number animate-in-up"><i class="ph ph-lightning"></i></p>
+                          <h3 class="achievements__descr animate-in-up">Weekend Bootcamps</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">Intensive weekend sessions perfect for working professionals and students</p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Programs Section End -->
+
+      <!-- Courses Section Start -->
+      <section id="courses" class="inner inner-stack-bottom portfolio">
+        <div class="inner__wrapper">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              
+              <!-- Inner Section Name Start -->
+              <div class="col-12 col-xl-2">
+                <div class="inner__name">
+                  <div class="content__block name-block">
+                    <span class="section-name icon-right animate-in-up">
+                      <span class="section-name-caption">Courses</span>
+                      <i class="ph ph-arrow-down-right"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Inner Section Name End -->
+
+              <div class="col-12 col-xl-8">
+                <div class="inner__content">
+                  
+                  <!-- Section Title -->
+                  <div class="content__block section-text-title">
+                    <div class="block__descr">
+                      <h2 class="reveal-type animate-in-up">Popular Tech Courses</h2>
+                      <p class="h2__text type-basic-160lh animate-in-up">Industry-relevant curriculum designed to make you job-ready</p>
+                    </div>
+                  </div>
+
+                  <!-- Dynamic Course Filter Tabs -->
+                  <div class="content__block filters-block text-center animate-in-up" style="margin-bottom: 5rem;">
+                    <div class="filter-tabs" role="group" aria-label="Filter courses by category">
+                      <button class="filter-tab active" data-filter="all" aria-pressed="true">All Courses</button>
+                      <button class="filter-tab" data-filter="dev" aria-pressed="false">Development</button>
+                      <button class="filter-tab" data-filter="design" aria-pressed="false">Design</button>
+                      <button class="filter-tab" data-filter="data-ai" aria-pressed="false">Data &amp; AI</button>
+                    </div>
+                  </div>
+
+                  <!-- Courses Cards -->
+                  <div class="content__block grid-block">
+                    <div class="container-fluid p-0">
+                      <div class="row g-4 align-items-stretch cards" id="courses-grid">
+
+                        <!-- Flutter Development -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                          <div class="cards__card dev-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Development</span>
+                              <div class="course-icon-container dev-icon-bg">
+                                <i class="ph-fill ph-device-mobile" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Flutter<br>Development</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Build beautiful cross-platform mobile apps with Flutter & Dart. From basics to advanced state management.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Dart</span>
+                                  <span class="course-badge">Flutter SDK</span>
+                                  <span class="course-badge">Firebase</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> E-Commerce Mobile App</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Placement Support</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">12 Weeks • Mobile</span>
+                              <a href="#course-popup-1" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Flutter Development details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Python Programming -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                          <div class="cards__card dev-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Programming</span>
+                              <div class="course-icon-container dev-icon-bg">
+                                <i class="ph-fill ph-terminal-window" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Python<br>Programming</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Master Python from fundamentals to advanced topics. Web development, automation, and scripting.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Python</span>
+                                  <span class="course-badge">Django</span>
+                                  <span class="course-badge">PostgreSQL</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Database Automation Engine</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Placement Support</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">10 Weeks • Scripting</span>
+                              <a href="#course-popup-2" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Python Programming details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- MERN Stack Development -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                          <div class="cards__card dev-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Development</span>
+                              <div class="course-icon-container dev-icon-bg">
+                                <i class="ph-fill ph-code" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">MERN Stack<br>Development</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Build full-stack web applications using MongoDB, Express.js, React, and Node.js. Master database modeling and APIs.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">MongoDB</span>
+                                  <span class="course-badge">Express</span>
+                                  <span class="course-badge">React</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Corporate SaaS Dashboard</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-to-6 Month Placement Support</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">14 Weeks • Backend</span>
+                              <a href="#course-popup-3" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore MERN Stack Development details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- UI/UX Design -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="design">
+                          <div class="cards__card design-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Design</span>
+                              <div class="course-icon-container design-icon-bg">
+                                <i class="ph-fill ph-palette" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">UI/UX<br>Design</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Create stunning user interfaces with Figma, Adobe XD. Design thinking and user research included.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Figma</span>
+                                  <span class="course-badge">Adobe XD</span>
+                                  <span class="course-badge">Miro</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> SaaS Dashboard Prototype</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Creative Placement</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">8 Weeks • Creative</span>
+                              <a href="#course-popup-4" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore UI/UX Design details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Digital Marketing -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="design">
+                          <div class="cards__card design-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Marketing</span>
+                              <div class="course-icon-container design-icon-bg">
+                                <i class="ph-fill ph-megaphone" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Digital<br>Marketing</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Drive growth, visibility, and user acquisition through SEO, SEM, content strategy, and analytics.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">SEO</span>
+                                  <span class="course-badge">Google Ads</span>
+                                  <span class="course-badge">GA4</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Live Brand Campaign Audit</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Growth Placement</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">10 Weeks • Growth</span>
+                              <a href="#course-popup-7" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Digital Marketing details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Cybersecurity -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                          <div class="cards__card dev-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Security</span>
+                              <div class="course-icon-container dev-icon-bg">
+                                <i class="ph-fill ph-shield-checkered" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Cyber<br>Security</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Learn network security, ethical hacking, threat modeling, and how to safeguard digital infrastructure.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Wireshark</span>
+                                  <span class="course-badge">Nmap</span>
+                                  <span class="course-badge">Kali Linux</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Enterprise Penetration Audit</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Security Placement</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">12 Weeks • Security</span>
+                              <a href="#course-popup-8" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Cybersecurity details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- AI & Machine Learning -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="data-ai">
+                          <div class="cards__card data-ai-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Data & AI</span>
+                              <div class="course-icon-container data-ai-icon-bg">
+                                <i class="ph-fill ph-brain" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">AI & Machine<br>Learning</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Dive into AI/ML with Python, TensorFlow, and scikit-learn. Build intelligent models and systems.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Python</span>
+                                  <span class="course-badge">TensorFlow</span>
+                                  <span class="course-badge">Scikit</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Computer Vision Model</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-to-6 Month Research Placement</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">16 Weeks • Advanced</span>
+                              <a href="#course-popup-5" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore AI & Machine Learning details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Data Science -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="data-ai">
+                          <div class="cards__card data-ai-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Data Science</span>
+                              <div class="course-icon-container data-ai-icon-bg">
+                                <i class="ph-fill ph-chart-bar" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Data<br>Science</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Analyze data, create visualizations, and build predictive models. Statistics to deep learning.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Python</span>
+                                  <span class="course-badge">SQL</span>
+                                  <span class="course-badge">Tableau</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Interactive BI Analytics Suite</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Analyst Placement</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">14 Weeks • Analysis</span>
+                              <a href="#course-popup-6" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Data Science details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Java Programming -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                          <div class="cards__card dev-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Programming</span>
+                              <div class="course-icon-container dev-icon-bg">
+                                <i class="ph-fill ph-coffee" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Java<br>Programming</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Master Core Java and Enterprise Application Development. Cover Object-Oriented Programming (OOP) concepts, Spring Boot framework, and MySQL database management.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">Java</span>
+                                  <span class="course-badge">OOP</span>
+                                  <span class="course-badge">Spring Boot</span>
+                                  <span class="course-badge">MySQL</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Enterprise Management System</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-Month Java Placement Support</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">10 Weeks • Enterprise</span>
+                              <a href="#course-popup-9" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Java Programming details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Full Stack Web Development -->
+                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                          <div class="cards__card dev-card d-flex flex-column justify-content-between">
+                            <div class="cards__descr">
+                              <span class="course-category-tag">Development</span>
+                              <div class="course-icon-container dev-icon-bg">
+                                <i class="ph-fill ph-browser" style="font-size: 28px;"></i>
+                              </div>
+                              <h3 class="cards__title animate-in-up" style="margin-bottom: 1.5rem;">Full Stack<br>Web Development</h3>
+                              <p class="cards__text type-basic-160lh animate-in-up">
+                                Build comprehensive client-server web applications. Cover modern frontend technologies, backend servers, REST APIs, and database deployment.
+                              </p>
+                              <div class="course-meta-details animate-in-up">
+                                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem;">
+                                  <span class="course-badge">React</span>
+                                  <span class="course-badge">Node.js</span>
+                                  <span class="course-badge">Express</span>
+                                  <span class="course-badge">PostgreSQL</span>
+                                </div>
+                                <div class="course-project-info">
+                                  <div><strong style="color: var(--t-bright);">Project:</strong> Business Management Platform</div>
+                                  <div><strong style="color: var(--t-bright);">Internship:</strong> 3-to-6 Month Full-Stack Placement</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="course-card-footer">
+                              <span class="course-meta-label">16 Weeks • Full-Stack</span>
+                              <a href="#course-popup-10" class="btn btn-default hover-default popup-trigger" style="margin-top: 0;" aria-label="Explore Full Stack Web Development details">
+                                <em></em>
+                                <span class="btn-caption">Explore</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>            </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Courses Section End -->
+
+      <!-- Benefits Section Start -->
+      <section id="benefits" class="inner inner-grid-bottom services">
+        <div class="inner__wrapper">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12 col-xl-2">
+                <div class="inner__name">
+                  <div class="content__block name-block">
+                    <span class="section-name icon-right animate-in-up">
+                      <span class="section-name-caption">Why Choose Us</span>
+                      <i class="ph ph-arrow-down-right"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="inner__content">
+
+                  <div class="content__block section-grid-title">
+                    <div class="block__descr">
+                      <h2 class="reveal-type animate-in-up">Learn from the<br>best in the industry</h2>
+                    </div>
+                  </div>
+
+                  <!-- Benefits List -->
+                  <div class="content__block grid-block pre-grid-items">
+                    <div class="container-fluid p-0">
+                      <div class="row g-0">
+                        
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 3rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;"><i class="ph ph-users-three" style="margin-right: 1rem;"></i> Expert Instructors</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Learn from industry professionals with 10+ years of experience in their domains</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 3rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;"><i class="ph ph-code" style="margin-right: 1rem;"></i> Hands-on Projects</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Build real-world projects and create an impressive portfolio to showcase to employers</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 3rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;"><i class="ph ph-certificate" style="margin-right: 1rem;"></i> Industry Certificates</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Earn recognized certifications upon completion to boost your career prospects</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 3rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;"><i class="ph ph-briefcase" style="margin-right: 1rem;"></i> Placement Support</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Get career guidance, resume building, and interview preparation assistance</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 3rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;"><i class="ph ph-infinity" style="margin-right: 1rem;"></i> Lifetime Access</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Access course materials, recordings, and community support forever</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 3rem 0;">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;"><i class="ph ph-chats-circle" style="margin-right: 1rem;"></i> Mentorship Program</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Get personalized guidance from mentors to accelerate your learning journey</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Benefits Section End -->
+
+      <!-- Internship Workflow Section Start -->
+      <section id="workflow" class="inner inner-grid-bottom about">
+        <div class="inner__wrapper">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12 col-xl-2">
+                <div class="inner__name">
+                  <div class="content__block name-block">
+                    <span class="section-name icon-right animate-in-up">
+                      <span class="section-name-caption">Our Roadmap</span>
+                      <i class="ph ph-arrow-down-right"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="inner__content">
+                  <div class="content__block section-text-title">
+                    <div class="block__descr">
+                      <h2 class="reveal-type animate-in-up">How the Internship<br>Program Works</h2>
+                    </div>
+                  </div>
+
+                  <!-- Workflow Steps -->
+                  <div class="content__block grid-block">
+                    <div class="achievements row g-4 align-items-stretch">
+                      
+                      <div class="col-12 col-md-6 col-lg-3 d-flex flex-column grid-item animate-card-4">
+                        <div class="achievements__card" style="padding: 3.5rem 2.5rem;">
+                          <p class="achievements__number animate-in-up" style="font-size: 4.6rem;"><i class="ph ph-steps"></i> 01</p>
+                          <h3 class="achievements__descr animate-in-up" style="margin-top: 1.5rem;">Foundation</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">8 weeks of rigorous, instructor-led training on core technologies, tools, and best practices.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg-3 d-flex flex-column grid-item animate-card-4">
+                        <div class="achievements__card" style="padding: 3.5rem 2.5rem;">
+                          <p class="achievements__number animate-in-up" style="font-size: 4.6rem;"><i class="ph ph-code-block"></i> 02</p>
+                          <h3 class="achievements__descr animate-in-up" style="margin-top: 1.5rem;">Live Sandbox</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">Develop miniature projects, integrate REST APIs, and practice state management under senior developers.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg-3 d-flex flex-column grid-item animate-card-4">
+                        <div class="achievements__card" style="padding: 3.5rem 2.5rem;">
+                          <p class="achievements__number animate-in-up" style="font-size: 4.6rem;"><i class="ph ph-git-merge"></i> 03</p>
+                          <h3 class="achievements__descr animate-in-up" style="margin-top: 1.5rem;">Corporate Deploy</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">Join active commercial agency sprints, write production code, and experience developer handovers.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg-3 d-flex flex-column grid-item animate-card-4">
+                        <div class="achievements__card" style="padding: 3.5rem 2.5rem;">
+                          <p class="achievements__number animate-in-up" style="font-size: 4.6rem;"><i class="ph ph-briefcase"></i> 04</p>
+                          <h3 class="achievements__descr animate-in-up" style="margin-top: 1.5rem;">Placement</h3>
+                          <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8; margin-top: 1.5rem;">Resume auditing, mock tech interviews, and direct developer referrals to client companies.</p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Internship Workflow Section End -->
+
+      <!-- FAQ Section Start -->
+      <section id="faq" class="inner services inner-grid-bottom">
+        <div class="inner__wrapper">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              <div class="col-12 col-xl-2">
+                <div class="inner__name">
+                  <div class="content__block name-block">
+                    <span class="section-name icon-right animate-in-up">
+                      <span class="section-name-caption">FAQ</span>
+                      <i class="ph ph-arrow-down-right"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="inner__content">
+                  <div class="content__block section-text-title">
+                    <div class="block__descr">
+                      <h2 class="reveal-type animate-in-up">Frequently Asked<br>Questions</h2>
+                    </div>
+                  </div>
+
+                  <!-- FAQ Items -->
+                  <div class="content__block grid-block pre-grid-items">
+                    <div class="container-fluid p-0">
+                      <div class="row g-0">
+                        
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 2.5rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;">Who is eligible for the internship programs?</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">B.Tech, MCA, BCA, BSc computer science graduates or students, and self-taught developers who have basic programming knowledge are eligible to apply.</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 2.5rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;">Do you provide certificates upon completion?</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Yes, you will receive an official Internship Certificate and a Course Completion Certificate detailing the live project you developed during your program.</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 2.5rem 0; border-bottom: 1px solid var(--stroke-elements);">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;">Are the classes online or offline?</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">We offer hybrid and in-person programs at our Kakkanad center, combining physical collaborative lab sessions with remote live code reviews.</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 grid-item animate-in-up">
+                          <div style="padding: 2.5rem 0;">
+                            <h5 class="animate-in-up" style="margin-bottom: 1rem;">How does the placement support work?</h5>
+                            <p class="small type-basic-160lh animate-in-up" style="opacity: 0.8;">Our placement support includes resume building, mock technical interviews, and directly sharing developer resumes with partner tech firms in Kochi and Bangalore.</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-12 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ Section End -->
+
+      <!-- Contact/Enrollment Section Start -->
+      <section id="contact" class="inner contact inner-grid-bottom no-padding-bottom">
+        <div class="inner__wrapper">
+          <div class="container-fluid p-0">
+            <div class="row g-0">
+              
+              <div class="col-12 col-xl-2">
+                <div class="inner__name">
+                  <div class="content__block name-block">
+                    <span class="section-name icon-right animate-in-up">
+                      <span class="section-name-caption">Enroll Now</span>
+                      <i class="ph ph-arrow-down-right"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-8">
+                <div class="inner__content">
+
+                  <!-- Section Title -->
+                  <div class="content__block section-form-title">
+                    <div class="block__descr">
+                      <h2 class="reveal-type animate-in-up">Start Your Learning Journey!</h2>
+                      <p class="h2__text type-basic-160lh animate-in-up">Ready to transform your career? Fill out the form below and our team will get back to you with course details, schedule, and enrollment information.</p>
+                    </div>
+                  </div>
+
+                  <!-- Enrollment Form Start -->
+                  <div class="content__block grid-block pre-grid-items">
+                    <div class="form-container">
+
+                      <!-- Reply Messages -->
+                      <div class="form__reply centered text-center">
+                        <i class="ph-thin ph-smiley reply__icon"></i>
+                        <p class="reply__title">Awesome!</p>
+                        <span class="reply__text">Thanks for your interest! Our team will contact you within 24 hours.</span>
+                      </div>
+
+                      <!-- Enrollment Form -->
+                      <form class="form contact-form" id="contact-form">
+                        <input type="hidden" name="project_name" value="Bigmonks Learning">
+                        <input type="hidden" name="form_subject" value="New Course Enrollment Inquiry">
+                        
+                        <div class="container-fluid p-0">
+                          <div class="row gx-0">
+                            <div class="col-12 col-md-6 form__item animate-in-up">
+                              <label for="name-input" class="visually-hidden">Your name*</label>
+                              <input id="name-input" type="text" name="Name" placeholder="Your name*" required>
+                            </div>
+                            <div class="col-12 col-md-6 form__item animate-in-up">
+                              <label for="email-input" class="visually-hidden">Email address*</label>
+                              <input id="email-input" type="email" name="Email" placeholder="Email address*" required>
+                            </div>
+                            <div class="col-12 col-md-6 form__item animate-in-up">
+                              <label for="phone-input" class="visually-hidden">Phone number*</label>
+                              <input id="phone-input" type="tel" name="Phone" placeholder="Phone number*" required>
+                            </div>
+                            <div class="col-12 col-md-6 form__item animate-in-up">
+                              <label for="course-select" class="visually-hidden">Select a course*</label>
+                              <select id="course-select" class="form-select-enhanced" name="Course" required>
+                                <option value="">Select a course*</option>
+                                <option value="Flutter Development">Flutter Development</option>
+                                <option value="Python Programming">Python Programming</option>
+                                <option value="MERN Stack Development">MERN Stack Development</option>
+                                <option value="UI/UX Design">UI/UX Design</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Other">Other</option>
+                              </select>
+                            </div>
+                            <div class="col-12 col-md-6 form__item animate-in-up">
+                              <label for="program-select" class="visually-hidden">Program type*</label>
+                              <select id="program-select" class="form-select-enhanced" name="Program" required>
+                                <option value="">Program type*</option>
+                                <option value="Internship">Internship Program</option>
+                                <option value="Professional Course">Professional Course</option>
+                                <option value="Weekend Bootcamp">Weekend Bootcamp</option>
+                              </select>
+                            </div>
+                            <div class="col-12 col-md-6 form__item animate-in-up">
+                              <label for="education-input" class="visually-hidden">Current education/designation</label>
+                              <input id="education-input" type="text" name="Education" placeholder="Current education/designation">
+                            </div>
+                            <div class="col-12 form__item animate-in-up">
+                              <label for="message-input" class="visually-hidden">Tell us about your goals and experience level</label>
+                              <textarea id="message-input" name="Message" placeholder="Tell us about your goals and experience level" style="height: 12rem;"></textarea>
+                            </div>
+                            <div class="col-12 form__item animate-in-up">
+                              <button class="btn btn-default hover-default" type="submit">
+                                <em></em>
+                                <span class="btn-caption">Submit Enrollment Request</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                      <!-- Enrollment Form End -->
+
+                    </div>
+                  </div>
+                  <!-- Enrollment Form Block End -->
+
+                  <!-- Content Block - Socials Cards Start -->
+                  <div class="content__block grid-block">
+                    <ul class="socials-cards d-flex justify-content-start flex-wrap">
+                      <!-- socials cards single item -->
+                      <li class="socials-cards__item grid-item d-flex animate-card-5">
+                        <a class="socials-cards__link d-flex align-items-center justify-content-center"
+                          href="https://www.linkedin.com/company/bigmonks-technologies01" target="_blank">
+                          <em></em>
+                          <i class="ph ph-linkedin-logo"></i>
+                        </a>
+                      </li>
+                      <!-- socials cards single item -->
+                      <li class="socials-cards__item grid-item d-flex animate-card-5">
+                        <a class="socials-cards__link d-flex align-items-center justify-content-center"
+                          href="https://x.com/BigmonksTech" target="_blank">
+                          <em></em>
+                          <i class="ph ph-twitter-logo"></i>
+                        </a>
+                      </li>
+                      <!-- socials cards single item -->
+                      <li class="socials-cards__item grid-item d-flex animate-card-5">
+                        <a class="socials-cards__link d-flex align-items-center justify-content-center"
+                          href="https://www.instagram.com/bigmonks_technologies?igsh=eXF6dWNpY3R3eWNo" target="_blank">
+                          <em></em>
+                          <i class="ph ph-instagram-logo"></i>
+                        </a>
+                      </li>
+                      <!-- socials cards single item -->
+                      <li class="socials-cards__item grid-item d-flex animate-card-5">
+                        <a class="socials-cards__link d-flex align-items-center justify-content-center"
+                          href="https://www.bigmonks.com" target="_blank">
+                          <em></em>
+                          <i class="ph ph-globe"></i>
+                        </a>
+                      </li>
+                      <!-- socials cards single item -->
+                      <li class="socials-cards__item grid-item d-flex animate-card-5">
+                        <a class="socials-cards__link d-flex align-items-center justify-content-center"
+                          href="mailto:info@bigmonks.com" target="_blank">
+                          <em></em>
+                          <i class="ph ph-envelope"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Content Block - Socials Cards End -->
+
+                  <!-- Footer Start -->
+                  <footer class="footer">
+                    <div class="container-fluid p-0">
+                      <div class="row g-0">
+                        <div class="col-12">
+
+                          <!-- Footer Email Link -->
+                          <div class="content__block pre-grid-items">
+                            <div class="footer__link d-flex flex-column flex-md-row justify-content-md-between align-items-md-center">
+                              <div class="footer__text reveal-type animate-in-up">Have a project?<br>Let's discuss!</div>
+                              <div class="footer__btn animate-in-up">
+                                <a href="mailto:info@bigmonks.com?subject=Project%20Inquiry%20from%20Website" class="btn btn-circle-icon hover-circle" aria-label="Send email to discuss your project">
+                                  <em></em>
+                                  <i class="ph-light ph-arrow-right"></i>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="footer__divider animate-in-up"></div>
+                          </div>
+                          <!-- Footer Email Link End -->
+
+                          <!-- Contact Data -->
+                          <div class="content__block grid-block">
+                            <div class="container-fluid p-0 contact-data">
+                              <div class="row g-0">
+
+                                <!-- Logo -->
+                                <div class="col-12 col-lg-3 contact-data__item grid-item">
+                                  <a href="/" class="logo__link" style="display: block;">
+                                    <div class="logo-text" style="font-size: 30px;">bigmonks</div>
+                                  </a>
+                                  <p class="contact-data__text small type-basic-160lh animate-in-up" style="margin-top: 15px; opacity: 0.8;">
+                                    Transforming ideas into digital reality with innovative technology solutions.
+                                  </p>
+                                </div>
+
+                                <!-- Location -->
+                                <div class="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
+                                  <p class="contact-data__title tagline-chapter animate-in-up">Location</p>
+                                  <p class="contact-data__text small type-basic-160lh">
+                                    <a class="link-small-160lh animate-in-up" href="https://maps.google.com/?q=Kakkanad,Ernakulam,Kerala" target="_blank">
+                                      Kakkanad, Ernakulam<br>Kerala - 682037<br>India
+                                    </a>
+                                  </p>
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
+                                  <p class="contact-data__title tagline-chapter animate-in-up">Contact</p>
+                                  <p class="contact-data__text small type-basic-160lh">
+                                    <a class="link-small-160lh animate-in-up" href="tel:+918848806406">+91 88488 06406</a><br>
+                                    <a class="link-small-160lh animate-in-up" href="https://wa.me/918848806406" target="_blank">WhatsApp</a>
+                                  </p>
+                                </div>
+
+                                <!-- Email & Social -->
+                                <div class="col-12 col-md-4 col-lg-3 contact-data__item grid-item">
+                                  <p class="contact-data__title tagline-chapter animate-in-up">Connect</p>
+                                  <p class="contact-data__text small type-basic-160lh">
+                                    <a class="link-small-160lh animate-in-up" href="mailto:info@bigmonks.com">info@bigmonks.com</a><br>
+                                    <a class="link-small-160lh animate-in-up" href="https://www.bigmonks.com" target="_blank">www.bigmonks.com</a>
+                                    <div style="margin-top: 15px; display: flex; gap: 10px;">
+                                      <a class="link-small-160lh animate-in-up" href="https://www.linkedin.com/company/bigmonks-technologies01" target="_blank" style="font-size: 20px;" aria-label="LinkedIn Profile">
+                                        <i class="ph ph-linkedin-logo"></i>
+                                      </a>
+                                      <a class="link-small-160lh animate-in-up" href="https://x.com/BigmonksTech" target="_blank" style="font-size: 20px;" aria-label="X Profile">
+                                        <i class="ph ph-x-logo"></i>
+                                      </a>
+                                      <a class="link-small-160lh animate-in-up" href="https://www.instagram.com/bigmonks_technologies" target="_blank" style="font-size: 20px;" aria-label="Instagram Profile">
+                                        <i class="ph ph-instagram-logo"></i>
+                                      </a>
+                                    </div>
+                                  </p>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Contact Data End -->
+
+                          <!-- Footer Bottom -->
+                          <div class="content__block grid-block">
+                            <div class="container-fluid p-0">
+                              <div class="row g-0">
+                                <div class="col-12">
+                                  <div class="footer__bottom d-flex flex-column flex-md-row justify-content-between align-items-center animate-in-up" style="padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                                    <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                                      <p class="small" style="opacity: 0.7; margin: 0;">© 2025 Bigmonks Technologies. All rights reserved.</p>
+                                      <div class="d-flex gap-3">
+                                        <a href="../privacy-policy.html" target="_blank" class="small link-small-160lh" style="opacity: 0.7;">Privacy Policy</a>
+                                        <span style="opacity: 0.7;">|</span>
+                                        <a href="../termsofservice.html" target="_blank" class="small link-small-160lh" style="opacity: 0.7;">Terms of Service</a>
+                                      </div>
+                                    </div>
+                                    <p class="small" style="opacity: 0.7; margin: 0;">Crafted with <i class="ph-fill ph-heart" style="color: #ff4444;"></i> in Kerala</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Footer Bottom End -->
+
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
+                  <!-- Footer End -->
+
+              </div>
+              <div class="col-12 col-xl-2"></div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact/Enrollment Section End -->
+
+
+
+    </main>
+    <!-- Page Content End -->
+
+    <!-- Bottom Background Images Start -->
+    <div class="bottom__background bottom-bg-02">
+      <div class="bottom-bg-02__02 animate-card-2">
+        <img src="../img/backgrounds/1200x1553_bg04.webp" alt="Template background image">
+      </div>
+      <div class="bottom-bg-02__01 animate-card-2">
+        <img src="../img/backgrounds/1200x1200_bg05.webp" alt="Template background image">
+      </div>
+    </div>
+    <!-- Bottom Background Images End -->
+
+    <!-- Mobile Menu Placeholder -->
+    <div class="header-offset"></div>
+
+    <!-- To Top Button -->
+    <a href="#0" id="to-top" class="btn btn-to-top slide-up" aria-label="Scroll to top">
+      <i class="ph ph-arrow-up"></i>
+    </a>
+
+        
+
+    <!-- Course Details Modals Start -->
+
+    <div id="course-popup-1" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #38bdf8;">Professional Academy Course</span>
+        <h2 class="popup-title">Flutter Development</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 12 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Build beautiful cross-platform mobile applications for Android and iOS using Flutter and Dart. Master app architecture, state management with Bloc and Provider, custom UI animations, local database handling, and full REST API integration.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Environment setup, Dart language fundamentals, and Flutter project lifecycle.</li>
+            <li><strong>Core Theory:</strong> Widgets deep-dive, navigation patterns, state management architectures.</li>
+            <li><strong>Hands-on Labs:</strong> Building functional components, form handling, and Firebase integration.</li>
+            <li><strong>Sandbox Deployment:</strong> App signing, testing on real devices, and publishing to Play Store.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Dart</span>
+            <span class="popup-tech-badge accent">Flutter SDK</span>
+            <span class="popup-tech-badge accent">Firebase</span>
+            <span class="popup-tech-badge accent">REST APIs</span>
+            <span class="popup-tech-badge accent">SQLite / Hive</span>
+            <span class="popup-tech-badge accent">Bloc / Provider</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">VS Code</span>
+            <span class="popup-tech-badge">Android Studio</span>
+            <span class="popup-tech-badge">Xcode Simulator</span>
+            <span class="popup-tech-badge">Git / GitHub</span>
+            <span class="popup-tech-badge">Postman</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Students undergo a 3-month corporate internship working with senior Flutter developers. You'll be assigned real app features, attend daily standups, follow corporate code review workflows, and receive a formal experience letter and recommendation certificate.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>E-Commerce Mobile App:</strong> Built with clean architecture, Bloc state management, cart caching, and integrated Razorpay payment gateway.</li>
+            <li><strong>Real-time Chat Client:</strong> Features WebSocket-based instant messaging, local database syncing, push notifications, and Firebase Auth.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Flutter Developer, Mobile Software Engineer, Cross-Platform App Developer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Publish production-quality mobile apps, manage complex state, integrate APIs, and deploy to the App Store and Play Store.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-2" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #38bdf8;">Professional Academy Course</span>
+        <h2 class="popup-title">Python Programming</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 10 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Master Python from core fundamentals to advanced application development. Covers web development with Django, scripting, automation, REST API design, and database-driven application development using PostgreSQL.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Python syntax, data types, control flow, and scripting fundamentals.</li>
+            <li><strong>Core Theory:</strong> OOP paradigms, file handling, modules, error handling, and regular expressions.</li>
+            <li><strong>Hands-on Labs:</strong> Building Django REST APIs, database models, and automation scripts.</li>
+            <li><strong>Deployment:</strong> Containerization basics, production server deployment, and CI/CD pipelines.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Python 3.x</span>
+            <span class="popup-tech-badge accent">Django</span>
+            <span class="popup-tech-badge accent">Django REST Framework</span>
+            <span class="popup-tech-badge accent">PostgreSQL</span>
+            <span class="popup-tech-badge accent">Celery</span>
+            <span class="popup-tech-badge accent">Redis</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">PyCharm / VS Code</span>
+            <span class="popup-tech-badge">Postman</span>
+            <span class="popup-tech-badge">Docker</span>
+            <span class="popup-tech-badge">Git / GitHub</span>
+            <span class="popup-tech-badge">AWS EC2 Basics</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Work with backend engineers on Python-powered Django applications — writing API endpoints, database migrations, writing unit tests, and optimizing query performance during a structured 3-month corporate placement.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Database Automation Engine:</strong> Automated data processing pipeline that ingests, transforms, and exports structured business data from multiple sources.</li>
+            <li><strong>Task Scheduling Platform:</strong> Django-powered job scheduling system with Celery workers, Redis broker, real-time dashboards, and admin panels.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Python Developer, Backend Engineer, Django Developer, Automation Engineer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Build scalable backend APIs, automate data workflows, design relational databases, and deploy production-grade Django applications.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-3" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #38bdf8;">Professional Academy Course</span>
+        <h2 class="popup-title">MERN Stack Development</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 14 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Build full-stack web applications using MongoDB, Express.js, React, and Node.js. Master frontend component architecture, RESTful API design, NoSQL database modeling, authentication flows, and cloud-ready deployment.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> JavaScript ES6+ fundamentals, Node.js environment, and npm ecosystem.</li>
+            <li><strong>Core Theory:</strong> React component lifecycle, hooks, Redux Toolkit, and Express middleware patterns.</li>
+            <li><strong>Hands-on Labs:</strong> MongoDB schema design, JWT authentication, and CRUD API development.</li>
+            <li><strong>Deployment:</strong> Docker containers, environment configuration, and AWS/Render deployment.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">MongoDB</span>
+            <span class="popup-tech-badge accent">Express.js</span>
+            <span class="popup-tech-badge accent">React 18</span>
+            <span class="popup-tech-badge accent">Node.js</span>
+            <span class="popup-tech-badge accent">Redux Toolkit</span>
+            <span class="popup-tech-badge accent">JWT / OAuth2</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">VS Code</span>
+            <span class="popup-tech-badge">Postman</span>
+            <span class="popup-tech-badge">MongoDB Atlas</span>
+            <span class="popup-tech-badge">Git / GitHub</span>
+            <span class="popup-tech-badge">Docker</span>
+            <span class="popup-tech-badge">Render / Vercel</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Join live project sprints building full-stack modules — implementing React pages, Express endpoints, and MongoDB models under senior engineers. Receive a 3-to-6-month placement certificate and LinkedIn recommendation.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Corporate SaaS Dashboard:</strong> Multi-tenant analytics platform with role-based access, real-time charts, data export, and full CRUD for entities.</li>
+            <li><strong>Real-time Collaboration Tool:</strong> WebSocket-powered collaborative workspace with rooms, notifications, user presence, and document versioning.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Full Stack Developer, MERN Developer, JavaScript Engineer, React Developer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Design and deploy complete web applications — from database schemas to responsive React UIs — with industry-grade authentication and APIs.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-4" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #ec4899;">Professional Academy Course</span>
+        <h2 class="popup-title">UI/UX Design</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 8 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Create premium user interfaces with Figma and Adobe XD. Master design thinking methodologies, user research techniques, prototyping, accessibility standards, and handoff workflows to development teams.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Design thinking principles, user psychology, and accessibility fundamentals.</li>
+            <li><strong>Core Theory:</strong> Typography systems, color theory, grid layouts, and component-based design.</li>
+            <li><strong>Hands-on Labs:</strong> Building Figma design systems, interactive prototypes, and usability tests.</li>
+            <li><strong>Portfolio Work:</strong> End-to-end product design from research to high-fidelity prototypes.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Figma</span>
+            <span class="popup-tech-badge accent">Adobe XD</span>
+            <span class="popup-tech-badge accent">FigJam</span>
+            <span class="popup-tech-badge accent">Miro</span>
+            <span class="popup-tech-badge accent">Zeplin</span>
+            <span class="popup-tech-badge accent">Notion</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">Figma Dev Mode</span>
+            <span class="popup-tech-badge">InVision</span>
+            <span class="popup-tech-badge">Hotjar</span>
+            <span class="popup-tech-badge">Google Analytics</span>
+            <span class="popup-tech-badge">Maze (user testing)</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Collaborate with product teams on real design sprints — creating wireframes, conducting user interviews, iterating on feedback, and delivering polished design specifications to developers during a 3-month creative placement.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>SaaS Dashboard Prototype:</strong> Full design system with 80+ components, dark/light mode, responsive layouts, and annotated developer handoffs.</li>
+            <li><strong>E-Commerce App Redesign:</strong> End-to-end mobile UX redesign project — user research, journey maps, wireframes, and high-fidelity Figma prototype.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">UI Designer, UX Researcher, Product Designer, Interaction Designer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Build complete design systems, conduct user research, create accessible prototypes, and collaborate with developers using professional tools.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-5" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #c084fc;">Professional Academy Course</span>
+        <h2 class="popup-title">AI & Machine Learning</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 16 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Intermediate to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Dive deep into Artificial Intelligence and Machine Learning with Python. Build neural networks, computer vision systems, NLP models, and production-ready ML pipelines using TensorFlow, PyTorch, and scikit-learn.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Python for data science, NumPy, Pandas, and exploratory data analysis.</li>
+            <li><strong>Core Theory:</strong> Supervised/unsupervised learning, neural network architectures, backpropagation.</li>
+            <li><strong>Hands-on Labs:</strong> Training CNNs, implementing transformers, and building NLP classifiers.</li>
+            <li><strong>Production:</strong> Model optimization, REST API serving with FastAPI, and cloud deployment.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Python</span>
+            <span class="popup-tech-badge accent">TensorFlow</span>
+            <span class="popup-tech-badge accent">PyTorch</span>
+            <span class="popup-tech-badge accent">scikit-learn</span>
+            <span class="popup-tech-badge accent">OpenCV</span>
+            <span class="popup-tech-badge accent">Hugging Face Transformers</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">Jupyter Notebooks</span>
+            <span class="popup-tech-badge">Google Colab</span>
+            <span class="popup-tech-badge">FastAPI</span>
+            <span class="popup-tech-badge">Docker</span>
+            <span class="popup-tech-badge">MLflow</span>
+            <span class="popup-tech-badge">AWS SageMaker Basics</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Research alongside ML engineers — training models on real datasets, tuning hyperparameters, analyzing metrics, and presenting model performance reports during a structured 3-to-6-month research placement.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Computer Vision Model:</strong> CNN-based object detection system trained on custom datasets with real-time inference and REST API serving.</li>
+            <li><strong>NLP Sentiment Classifier:</strong> Fine-tuned transformer model for multi-class text classification, deployed as a production FastAPI microservice.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">ML Engineer, AI Researcher, Data Scientist, Computer Vision Engineer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Train and deploy production AI models, build data pipelines, optimize inference performance, and implement state-of-the-art deep learning architectures.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-6" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #c084fc;">Professional Academy Course</span>
+        <h2 class="popup-title">Data Science</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 14 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Analyze data, create interactive visualizations, and build predictive models. From statistical analysis to machine learning and business intelligence, this course covers the complete data science workflow.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Statistics fundamentals, probability, and Python data analysis with Pandas.</li>
+            <li><strong>Core Theory:</strong> Feature engineering, predictive modeling, clustering, and regression techniques.</li>
+            <li><strong>Hands-on Labs:</strong> Building Tableau dashboards, SQL analytics queries, and Jupyter notebooks.</li>
+            <li><strong>Capstone Project:</strong> End-to-end data pipeline from raw CSV ingestion to executive dashboard.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Python</span>
+            <span class="popup-tech-badge accent">SQL</span>
+            <span class="popup-tech-badge accent">Pandas</span>
+            <span class="popup-tech-badge accent">NumPy</span>
+            <span class="popup-tech-badge accent">Matplotlib / Seaborn</span>
+            <span class="popup-tech-badge accent">Tableau</span>
+            <span class="popup-tech-badge accent">scikit-learn</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">Jupyter Lab</span>
+            <span class="popup-tech-badge">DBeaver</span>
+            <span class="popup-tech-badge">Tableau Public</span>
+            <span class="popup-tech-badge">Power BI Basics</span>
+            <span class="popup-tech-badge">Git / GitHub</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Work with data teams on real business datasets — cleaning, analyzing, and building reports for stakeholders during a structured 3-month analyst placement with weekly performance reviews.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Interactive BI Analytics Suite:</strong> Multi-tab Tableau dashboard with live filters, trend analysis, geographic maps, and automated data refresh.</li>
+            <li><strong>Customer Churn Predictor:</strong> ML model predicting subscription cancellations with 87% accuracy, deployed with explainability using SHAP values.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Data Analyst, Data Scientist, BI Developer, Analytics Engineer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Extract insights from complex datasets, build predictive models, create executive dashboards, and communicate findings to non-technical stakeholders.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-7" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #ec4899;">Professional Academy Course</span>
+        <h2 class="popup-title">Digital Marketing</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 10 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Drive business growth through data-driven digital marketing. Master SEO, Google Ads, Meta advertising, content strategy, email marketing, and marketing analytics using GA4 and Google Search Console.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Digital marketing landscape, buyer personas, and campaign planning fundamentals.</li>
+            <li><strong>Core Theory:</strong> SEO on-page/off-page, Google Ads bidding strategies, and social media algorithms.</li>
+            <li><strong>Hands-on Labs:</strong> Live Google Ads campaigns, SEO audits, and Meta Ads Manager projects.</li>
+            <li><strong>Analytics:</strong> GA4 event tracking, conversion funnels, attribution modeling, and reporting.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">SEO / SEM</span>
+            <span class="popup-tech-badge accent">Google Ads</span>
+            <span class="popup-tech-badge accent">Meta Ads Manager</span>
+            <span class="popup-tech-badge accent">GA4</span>
+            <span class="popup-tech-badge accent">Google Search Console</span>
+            <span class="popup-tech-badge accent">Email Marketing</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">Ahrefs / SEMrush</span>
+            <span class="popup-tech-badge">Google Analytics 4</span>
+            <span class="popup-tech-badge">Mailchimp</span>
+            <span class="popup-tech-badge">Canva</span>
+            <span class="popup-tech-badge">Buffer / Hootsuite</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Run live campaigns under senior marketers — managing actual ad spend, optimizing CTRs, analyzing funnel performance, and presenting monthly growth reports during a 3-month growth marketing placement.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Live Brand Campaign Audit:</strong> Full SEO technical audit with keyword strategy, content gap analysis, and backlink outreach plan for a real client website.</li>
+            <li><strong>Google Ads Conversion Campaign:</strong> End-to-end paid search campaign with audience segments, A/B ad variants, bid strategy optimization, and ROI reporting.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Digital Marketing Specialist, SEO Manager, Growth Marketer, PPC Specialist</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Plan and execute multi-channel campaigns, optimize ad spend for ROI, build organic search rankings, and report performance to clients.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-8" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #38bdf8;">Professional Academy Course</span>
+        <h2 class="popup-title">Cyber Security</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 12 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Learn to protect digital infrastructure through ethical hacking, network security analysis, threat modeling, and incident response. Covers hands-on penetration testing with industry-standard tools on legal lab environments.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Networking fundamentals, OSI model, TCP/IP protocols, and attack surfaces.</li>
+            <li><strong>Core Theory:</strong> OWASP Top 10, network sniffing, vulnerability scanning, and threat intelligence.</li>
+            <li><strong>Hands-on Labs:</strong> Ethical hacking on CTF platforms, Metasploit exploitation, and Wireshark analysis.</li>
+            <li><strong>Certification Prep:</strong> CompTIA Security+ exam topics, report writing, and remediation recommendations.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Kali Linux</span>
+            <span class="popup-tech-badge accent">Wireshark</span>
+            <span class="popup-tech-badge accent">Nmap / Nessus</span>
+            <span class="popup-tech-badge accent">Metasploit</span>
+            <span class="popup-tech-badge accent">Burp Suite</span>
+            <span class="popup-tech-badge accent">OSINT Tools</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">VirtualBox / VMware</span>
+            <span class="popup-tech-badge">TryHackMe / HackTheBox</span>
+            <span class="popup-tech-badge">Shodan</span>
+            <span class="popup-tech-badge">John the Ripper</span>
+            <span class="popup-tech-badge">Hydra</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Work alongside security analysts performing vulnerability assessments, writing penetration testing reports, and monitoring security events during a structured 3-month security internship with real-world lab access.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Enterprise Penetration Audit:</strong> Full-scope network penetration test on a simulated corporate environment with executive summary and remediation roadmap.</li>
+            <li><strong>Web Application Security Assessment:</strong> OWASP-based assessment of a test web application covering SQL injection, XSS, CSRF, and broken authentication vectors.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Security Analyst, Penetration Tester, Ethical Hacker, SOC Analyst</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Conduct professional security assessments, identify and exploit vulnerabilities responsibly, write technical reports, and implement security controls.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-9" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #38bdf8;">Professional Academy Course</span>
+        <h2 class="popup-title">Java Programming</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 10 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Master Core Java and Enterprise Application Development with Spring Boot. Cover Object-Oriented Programming (OOP) design patterns, RESTful API development, MySQL database management, and backend enterprise architecture.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> Java syntax, JDK setup, OOP principles — classes, inheritance, polymorphism.</li>
+            <li><strong>Core Theory:</strong> Design patterns, exception handling, collections, generics, and multithreading.</li>
+            <li><strong>Hands-on Labs:</strong> Building Spring Boot REST APIs, Hibernate ORM, and MySQL database integration.</li>
+            <li><strong>Deployment:</strong> Maven build, Docker containerization, JWT security, and cloud deployment basics.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">Core Java</span>
+            <span class="popup-tech-badge accent">OOP Principles</span>
+            <span class="popup-tech-badge accent">Spring Boot</span>
+            <span class="popup-tech-badge accent">Hibernate / JPA</span>
+            <span class="popup-tech-badge accent">MySQL</span>
+            <span class="popup-tech-badge accent">REST APIs</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">IntelliJ IDEA</span>
+            <span class="popup-tech-badge">Maven</span>
+            <span class="popup-tech-badge">Postman</span>
+            <span class="popup-tech-badge">MySQL Workbench</span>
+            <span class="popup-tech-badge">Git / GitHub</span>
+            <span class="popup-tech-badge">Docker</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Work under senior Java engineers building enterprise application features — writing JPA repositories, REST controllers, database migrations, and unit tests with JUnit during a structured 3-month Java development internship.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Enterprise Management System:</strong> Complete Spring Boot REST API for employee, department, and payroll workflows with role-based JWT security and Swagger docs.</li>
+            <li><strong>Banking Transaction Processor:</strong> Robust multi-threaded transaction ledger system in Core Java with optimistic locking, audit trails, and performance benchmarking.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Java Developer, Spring Boot Engineer, Backend Software Engineer, Enterprise Developer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Build RESTful enterprise applications, design OOP-based systems, manage relational databases, and deploy production Spring Boot microservices.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="course-popup-10" class="popup mfp-hide" data-lenis-prevent="">
+      <button class="mfp-close permanent-light" aria-label="Close popup">×</button>
+
+      <!-- Header -->
+      <div class="popup-header">
+        <span class="popup-course-eyebrow" style="color: #38bdf8;">Professional Academy Course</span>
+        <h2 class="popup-title">Full Stack Web Development</h2>
+        <div class="popup-header-meta">
+          <span class="popup-meta-chip"><i class="ph ph-clock"></i> 16 Weeks</span>
+          <span class="popup-meta-chip"><i class="ph ph-chart-line-up"></i> Beginner to Advanced</span>
+          <span class="popup-meta-chip"><i class="ph ph-certificate"></i> Internship Included</span>
+        </div>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="popup__container">
+
+        <!-- Course Overview -->
+        <div class="popup-section">
+          <span class="popup-section-label">Course Overview</span>
+          <p class="popup-body-text">Build comprehensive client-to-server web applications from scratch. Cover modern frontend development with React, backend APIs with Node.js and Express, database design with MongoDB and PostgreSQL, and full production deployment.</p>
+        </div>
+
+        <!-- Module Breakdown -->
+        <div class="popup-section">
+          <span class="popup-section-label">Module Breakdown</span>
+          <ul class="popup-list">
+            <li><strong>Overview:</strong> HTML5, CSS3, JavaScript ES6+, Git workflows, and responsive design principles.</li>
+            <li><strong>Core Theory:</strong> React 18 hooks and context, Express routing, REST API design, JWT authentication.</li>
+            <li><strong>Hands-on Labs:</strong> MongoDB schema design, PostgreSQL queries, and multi-page React applications.</li>
+            <li><strong>Deployment:</strong> Server configuration, Docker, environment variables, Vercel/Render deployment.</li>
+          </ul>
+        </div>
+
+        <!-- Technologies -->
+        <div class="popup-section">
+          <span class="popup-section-label">Technologies Covered</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+            <span class="popup-tech-badge accent">HTML5 / CSS3</span>
+            <span class="popup-tech-badge accent">JavaScript ES6+</span>
+            <span class="popup-tech-badge accent">React 18</span>
+            <span class="popup-tech-badge accent">Node.js</span>
+            <span class="popup-tech-badge accent">Express.js</span>
+            <span class="popup-tech-badge accent">MongoDB</span>
+            <span class="popup-tech-badge accent">PostgreSQL</span>
+          </div>
+          <span class="popup-section-label" style="margin-top: 0.5rem;">Industry Tools</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="popup-tech-badge">VS Code</span>
+            <span class="popup-tech-badge">Postman</span>
+            <span class="popup-tech-badge">MongoDB Atlas</span>
+            <span class="popup-tech-badge">Git / GitHub</span>
+            <span class="popup-tech-badge">Docker</span>
+            <span class="popup-tech-badge">Vercel / Render</span>
+          </div>
+        </div>
+
+        <!-- Internship -->
+        <div class="popup-section">
+          <span class="popup-section-label">Internship Experience</span>
+          <p class="popup-body-text">Participate in full-stack project sprints — building React interfaces, Express API endpoints, and PostgreSQL database queries under senior engineers during a 3-to-6-month full-stack internship with formal placement support.</p>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="popup-section">
+          <span class="popup-section-label">Live Projects</span>
+          <ul class="popup-list">
+            <li><strong>Business Management Platform:</strong> Complete multi-tenant SaaS platform with inventory tracking, client database, invoicing, and React dashboard for analytics.</li>
+            <li><strong>E-Commerce Web Portal:</strong> Full-featured shopping cart with product search, Stripe payments, order management, and admin panel with role-based access.</li>
+          </ul>
+        </div>
+
+        <!-- Career Paths -->
+        <div class="popup-section">
+          <span class="popup-section-label">Career Outcomes</span>
+          <div class="popup-info-grid">
+            <div class="popup-info-block">
+              <span class="popup-info-label">Target Roles</span>
+              <p class="popup-info-value">Full Stack Developer, React Developer, Node.js Engineer, Web Application Developer</p>
+            </div>
+            <div class="popup-info-block">
+              <span class="popup-info-label">What You'll Build</span>
+              <p class="popup-info-value">Design and build end-to-end web applications — from database schemas to deployed React frontends — with secure APIs and production infrastructure.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end popup__container -->
+
+      <!-- CTA -->
+      <div class="popup-cta-section">
+        <div class="popup-cta-label">
+          Ready to start your journey?
+          <span>Limited seats available each batch</span>
+        </div>
+        <a href="#contact" class="btn btn-default hover-default" onclick="$.magnificPopup.close();" style="margin-top: 0;">
+          <em></em>
+          <span class="btn-caption">Enroll Now</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Course Details Modals End -->
+
+    <!-- Load Scripts -->
+    <script src="../js/libs.min.js"></script>
+    <script src="../js/app.js"></script>
+    
+    <!-- Abstracted Enrollment Form Logic & Overrides -->
+    <script>
+    $(function() {
+      // Unbind shared submit handler to prevent relative mail.php calls
+      $('#contact-form').off('submit');
+      
+      $('#contact-form').submit(function(e) {
+        e.preventDefault();
+        var th = $(this);
+        var formData = th.serializeArray();
+        
+        // Abstracted form submission handler for future integrations
+        console.log("Learnings enrollment captured:", formData);
+        
+        // Trigger visual success indicators
+        $('.contact').find('.form').addClass('is-hidden');
+        $('.contact').find('.form__reply').addClass('is-visible');
+        
+        setTimeout(function () {
+          $('.contact').find('.form__reply').removeClass('is-visible');
+          $('.contact').find('.form').delay(300).removeClass('is-hidden');
+          th.trigger("reset");
+        }, 4000);
+        
+        return false;
+      });
+    });
+    </script>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tabs = document.querySelectorAll(".filter-tab");
+      const items = document.querySelectorAll("#courses-grid .grid-item");
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+          // Update active state and aria-pressed on all tabs
+          tabs.forEach(t => {
+            t.classList.remove("active");
+            t.setAttribute("aria-pressed", "false");
+          });
+          this.classList.add("active");
+          this.setAttribute("aria-pressed", "true");
+
+          const filter = this.getAttribute("data-filter");
+
+          items.forEach(item => {
+            const category = item.getAttribute("data-category");
+            if (filter === "all" || category === filter) {
+              item.classList.remove("fade-out");
+              item.style.display = "";
+            } else {
+              item.classList.add("fade-out");
+              // Delay setting display none to allow fade animation to complete
+              setTimeout(() => {
+                if (item.classList.contains("fade-out")) {
+                  item.style.display = "none";
+                }
+              }, 380);
+            }
+          });
+        });
+      });
+    });
+    </script>
+
+    
+</body>
+</html>
