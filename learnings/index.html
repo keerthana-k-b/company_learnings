@@ -159,7 +159,36 @@
       border: none !important;
     }
 
-    /* Card shell — Exact specification from Our Works (#works-showcase .cards__card) */
+    /* ============================================================
+       COURSE CARDS — THEME ADAPTIVE (DARK DEFAULT + LIGHT OVERRIDES)
+    ============================================================ */
+
+    /* Row alignment */
+    #courses-grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: stretch !important;
+    }
+
+    /* Card item wrapper */
+    .cards__item.grid-item {
+      position: relative;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: visible !important;
+    }
+    .cards__item.grid-item.fade-out {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+
+    /* Card shell — Approved Design Specification */
     .cards__card {
       width: 100%;
       height: 100% !important;
@@ -204,7 +233,7 @@
       background: linear-gradient(90deg, transparent, #c084fc, transparent);
     }
 
-    /* Subtle hover elevation & shadow — copied directly from Our Works */
+    /* Hover elevation & shadow */
     .cards__card:hover {
       transform: translateY(-8px) !important;
       border-color: rgba(99, 102, 241, 0.25) !important;
@@ -235,7 +264,7 @@
         0 0 30px rgba(192, 132, 252, 0.12) !important;
     }
 
-    /* Card body — 35px padding matching Our Works cards */
+    /* Card body padding */
     .cards__descr {
       flex: 1 1 auto !important;
       display: flex !important;
@@ -245,7 +274,7 @@
       z-index: 1;
     }
 
-    /* Category label */
+    /* Category label tag — Dark Default + Light Override */
     .course-category-tag {
       display: inline-block;
       font-size: 1.1rem !important;
@@ -253,12 +282,16 @@
       text-transform: uppercase;
       letter-spacing: 2.5px !important;
       margin-bottom: 1.4rem !important;
-      color: #374151 !important;
       transition: opacity 0.3s ease;
     }
-    .dev-card .course-category-tag { color: #374151 !important; }
-    .design-card .course-category-tag { color: #374151 !important; }
-    .data-ai-card .course-category-tag { color: #374151 !important; }
+    .dev-card .course-category-tag { color: #38bdf8 !important; }
+    .design-card .course-category-tag { color: #f472b6 !important; }
+    .data-ai-card .course-category-tag { color: #c084fc !important; }
+    [color-scheme=light] .dev-card .course-category-tag,
+    [color-scheme=light] .design-card .course-category-tag,
+    [color-scheme=light] .data-ai-card .course-category-tag {
+      color: #374151 !important;
+    }
 
     /* Icon container */
     .course-icon-container {
@@ -276,42 +309,63 @@
       transform: scale(1.06) rotate(3deg);
     }
     .dev-icon-bg {
+      background: rgba(56, 189, 248, 0.14) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      color: #38bdf8 !important;
+    }
+    [color-scheme=light] .dev-icon-bg {
       background: rgba(56, 189, 248, 0.12) !important;
-      border: 1px solid rgba(56, 189, 248, 0.25) !important;
+      border-color: rgba(56, 189, 248, 0.25) !important;
       color: #0284c7 !important;
     }
     .design-icon-bg {
+      background: rgba(244, 114, 182, 0.14) !important;
+      border: 1px solid rgba(244, 114, 182, 0.3) !important;
+      color: #f472b6 !important;
+    }
+    [color-scheme=light] .design-icon-bg {
       background: rgba(244, 114, 182, 0.12) !important;
-      border: 1px solid rgba(244, 114, 182, 0.25) !important;
+      border-color: rgba(244, 114, 182, 0.25) !important;
       color: #db2777 !important;
     }
     .data-ai-icon-bg {
+      background: rgba(192, 132, 252, 0.14) !important;
+      border: 1px solid rgba(192, 132, 252, 0.3) !important;
+      color: #c084fc !important;
+    }
+    [color-scheme=light] .data-ai-icon-bg {
       background: rgba(192, 132, 252, 0.12) !important;
-      border: 1px solid rgba(192, 132, 252, 0.25) !important;
+      border-color: rgba(192, 132, 252, 0.25) !important;
       color: #9333ea !important;
     }
 
-    /* Card title — high contrast dark heading */
+    /* Course Title — Dark Default (#ffffff) | Light Override (#111827) */
     .cards__card .cards__title {
       font-size: 2.2rem !important;
       font-weight: 700 !important;
       line-height: 1.3 !important;
-      color: #111827 !important;
+      color: #ffffff !important;
       margin-bottom: 1.2rem !important;
       word-break: normal;
       word-wrap: break-word;
       overflow-wrap: break-word;
       letter-spacing: -0.01em;
     }
+    [color-scheme=light] .cards__card .cards__title {
+      color: #111827 !important;
+    }
 
-    /* Card description text — dark slate body text */
+    /* Course Description — Dark Default (rgba(255,255,255,0.75)) | Light Override (#4B5563) */
     .cards__card .cards__text {
       font-size: 1.45rem !important;
       line-height: 1.6 !important;
-      color: #4B5563 !important;
+      color: rgba(255, 255, 255, 0.75) !important;
       font-weight: 400 !important;
       margin-bottom: 0 !important;
       flex-grow: 1 !important;
+    }
+    [color-scheme=light] .cards__card .cards__text {
+      color: #4B5563 !important;
     }
 
     /* Prevent GSAP ScrollTrigger from hiding card contents after filtering */
@@ -329,8 +383,11 @@
     .course-meta-details {
       margin-top: auto !important;
       padding-top: 1.6rem !important;
-      border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
       width: 100% !important;
+    }
+    [color-scheme=light] .course-meta-details {
+      border-top-color: rgba(0, 0, 0, 0.08) !important;
     }
     .course-meta-details > div:first-child {
       display: flex !important;
@@ -340,7 +397,7 @@
       width: 100% !important;
     }
 
-    /* Technology badges — SaaS-style Glass Pill Badges */
+    /* Technology Badges — Glass Pill Badges */
     .course-badge {
       display: inline-flex !important;
       align-items: center !important;
@@ -354,13 +411,16 @@
       -webkit-backdrop-filter: blur(8px) !important;
       transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
     }
-
-    /* Development Badges (Blue Tint & Soft Glow) */
     .dev-card .course-badge {
-      background: rgba(14, 165, 233, 0.12) !important;
-      border: 1px solid rgba(56, 189, 248, 0.3) !important;
-      color: #0284c7 !important;
+      background: rgba(56, 189, 248, 0.14) !important;
+      border: 1px solid rgba(56, 189, 248, 0.35) !important;
+      color: #38bdf8 !important;
       box-shadow: 0 2px 8px rgba(56, 189, 248, 0.12) !important;
+    }
+    [color-scheme=light] .dev-card .course-badge {
+      background: rgba(14, 165, 233, 0.12) !important;
+      border-color: rgba(56, 189, 248, 0.3) !important;
+      color: #0284c7 !important;
     }
     .cards__card.dev-card:hover .course-badge {
       background: rgba(14, 165, 233, 0.22) !important;
@@ -369,13 +429,16 @@
       box-shadow: 0 4px 14px rgba(56, 189, 248, 0.28) !important;
       transform: translateY(-2px) !important;
     }
-
-    /* Design Badges (Rose Tint & Soft Glow) */
     .design-card .course-badge {
-      background: rgba(244, 114, 182, 0.12) !important;
-      border: 1px solid rgba(244, 114, 182, 0.3) !important;
-      color: #be185d !important;
+      background: rgba(244, 114, 182, 0.14) !important;
+      border: 1px solid rgba(244, 114, 182, 0.35) !important;
+      color: #f472b6 !important;
       box-shadow: 0 2px 8px rgba(244, 114, 182, 0.12) !important;
+    }
+    [color-scheme=light] .design-card .course-badge {
+      background: rgba(244, 114, 182, 0.12) !important;
+      border-color: rgba(244, 114, 182, 0.3) !important;
+      color: #be185d !important;
     }
     .cards__card.design-card:hover .course-badge {
       background: rgba(244, 114, 182, 0.22) !important;
@@ -384,13 +447,16 @@
       box-shadow: 0 4px 14px rgba(244, 114, 182, 0.28) !important;
       transform: translateY(-2px) !important;
     }
-
-    /* Data & AI Badges (Purple Tint & Soft Glow) */
     .data-ai-card .course-badge {
-      background: rgba(192, 132, 252, 0.12) !important;
-      border: 1px solid rgba(192, 132, 252, 0.3) !important;
-      color: #7e22ce !important;
+      background: rgba(192, 132, 252, 0.14) !important;
+      border: 1px solid rgba(192, 132, 252, 0.35) !important;
+      color: #c084fc !important;
       box-shadow: 0 2px 8px rgba(192, 132, 252, 0.12) !important;
+    }
+    [color-scheme=light] .data-ai-card .course-badge {
+      background: rgba(192, 132, 252, 0.12) !important;
+      border-color: rgba(192, 132, 252, 0.3) !important;
+      color: #7e22ce !important;
     }
     .cards__card.data-ai-card:hover .course-badge {
       background: rgba(192, 132, 252, 0.22) !important;
@@ -400,7 +466,7 @@
       transform: translateY(-2px) !important;
     }
 
-    /* Project & Internship info panel — matching requested colors */
+    /* Project & Internship info panel — Dark Default + Light Override */
     .course-project-info {
       display: grid !important;
       gap: 0.6rem !important;
@@ -414,16 +480,22 @@
     .course-project-info div {
       font-size: 1.3rem !important;
       line-height: 1.5 !important;
+      color: rgba(255, 255, 255, 0.82) !important;
+    }
+    [color-scheme=light] .course-project-info div {
       color: #374151 !important;
     }
     .course-project-info strong {
-      color: #111827 !important;
+      color: #ffffff !important;
       font-weight: 700 !important;
       display: inline-block;
       margin-right: 0.4rem;
     }
+    [color-scheme=light] .course-project-info strong {
+      color: #111827 !important;
+    }
 
-    /* Card footer — PERFECT FLEXBOX BASELINE ROW */
+    /* Card Footer */
     .course-card-footer {
       display: flex !important;
       justify-content: space-between !important;
@@ -439,7 +511,7 @@
       z-index: 1;
     }
 
-    /* Duration/level chip */
+    /* Duration chip — Dark Default + Light Override */
     .course-meta-label {
       display: inline-flex !important;
       align-items: center !important;
@@ -451,12 +523,17 @@
       font-size: 1.2rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.02em !important;
-      color: #374151 !important;
-      background: rgba(0, 0, 0, 0.04) !important;
-      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
       white-space: nowrap !important;
       flex-shrink: 0 !important;
       box-sizing: border-box !important;
+    }
+    [color-scheme=light] .course-meta-label {
+      color: #374151 !important;
+      background: rgba(0, 0, 0, 0.04) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
     }
 
     /* Explore Pill Button — Premium Design */
