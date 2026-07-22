@@ -69,66 +69,69 @@
     }
 
     /* ============================================================
-       COURSE FILTER NAVIGATION — SEGMENTED PREMIUM GLASS
+       COURSE FILTER TABS — STANDALONE MINIMAL PILLS
     ============================================================ */
     .filters-block {
+      width: 100% !important;
       text-align: center;
+      margin-bottom: 3.6rem !important;
     }
+
+    /* Standalone Filter Pills Container (No Outer Container) */
     .filter-tabs {
-      display: inline-flex !important;
+      display: flex !important;
       flex-wrap: wrap !important;
+      align-items: center !important;
       justify-content: center !important;
-      gap: 0.8rem !important;
-      background: rgba(18, 20, 28, 0.85) !important;
-      backdrop-filter: blur(24px) saturate(180%) !important;
-      -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-      padding: 0.7rem !important;
-      border-radius: 5rem !important;
-      border: 1px solid rgba(255, 255, 255, 0.18) !important;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+      gap: 1.2rem !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
     }
+
+    /* Inactive Standalone Filter Pill Buttons */
     .filter-tab {
-      background: transparent;
-      border: 1px solid transparent;
-      color: #e2e8f0 !important;
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      color: #09090b !important;
       padding: 0.9rem 2.6rem !important;
-      font-size: 1.45rem !important;
+      font-size: 1.4rem !important;
       font-weight: 600 !important;
-      font-family: var(--_font-default);
-      letter-spacing: 0.02em;
-      border-radius: 3.5rem !important;
+      font-family: var(--_font-default) !important;
+      border-radius: 30px !important;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
       outline: none;
       white-space: nowrap;
     }
     .filter-tab:hover {
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.16) !important;
-      border-color: rgba(255, 255, 255, 0.25) !important;
-      transform: translateY(-1px) !important;
-    }
-    .filter-tab:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.7);
-      outline-offset: 2px;
-    }
-    .filter-tab.active {
-      background: #ffffff !important;
-      color: #09090b !important;
-      font-weight: 800 !important;
-      letter-spacing: 0.02em !important;
-      box-shadow: 0 6px 24px rgba(255, 255, 255, 0.4), 0 2px 10px rgba(0, 0, 0, 0.5) !important;
-      border-radius: 3.5rem !important;
-    }
-    .filter-tab.active:hover {
       background: #f4f4f5 !important;
       color: #09090b !important;
+      border-color: rgba(0, 0, 0, 0.18) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Active Filter Pill Button — Brand Blue */
+    .filter-tab.active {
+      background: #1E40AF !important;
+      color: #ffffff !important;
+      border-color: #3B82F6 !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 18px rgba(30, 64, 175, 0.4) !important;
+      transform: translateY(0) !important;
+    }
+    .filter-tab.active:hover {
+      background: #1e3a8a !important;
+      color: #ffffff !important;
+      border-color: #3B82F6 !important;
     }
 
     /* ============================================================
-       COURSE CARDS — ULTRA-HIGH CONTRAST & PREMIUM DEPTH
-    ============================================================ */    /* ============================================================
-       COURSE CARDS — COMPACT, PREMIUM GLASSMORPHISM (OUR WORKS SPEC)
+       COURSE CARDS — REUSED DIRECTLY FROM OUR WORKS (WORKS.HTML)
     ============================================================ */
 
     /* Row alignment */
@@ -156,7 +159,7 @@
       border: none !important;
     }
 
-    /* Card shell — Premium Glassmorphism & Compact Proportions */
+    /* Card shell — Exact specification from Our Works (#works-showcase .cards__card) */
     .cards__card {
       width: 100%;
       height: 100% !important;
@@ -164,32 +167,32 @@
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
-      background: rgba(18, 20, 28, 0.85) !important;
-      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+      background: rgba(255, 255, 255, 0.015) !important;
       backdrop-filter: blur(16px) !important;
       -webkit-backdrop-filter: blur(16px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      border-radius: 2rem !important;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-      transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
-                  box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
-                  border-color 0.35s ease,
-                  background 0.35s ease !important;
+      border: 1px solid rgba(255, 255, 255, 0.04) !important;
+      border-radius: 24px !important;
+      padding: 0 !important;
       overflow: hidden !important;
       position: relative;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+                  border-color 0.5s ease,
+                  box-shadow 0.5s ease !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.08) !important;
     }
 
-    /* Category-specific top accent glow line */
+    /* Category accent top bar */
     .cards__card::before {
       content: "";
       position: absolute;
       top: 0;
-      left: 1.8rem;
-      right: 1.8rem;
+      left: 2rem;
+      right: 2rem;
       height: 2px;
       border-radius: 0 0 4px 4px;
-      opacity: 0.7;
-      transition: opacity 0.35s ease, height 0.35s ease;
+      opacity: 0.6;
+      transition: opacity 0.35s ease;
+      z-index: 2;
     }
     .cards__card.dev-card::before {
       background: linear-gradient(90deg, transparent, #38bdf8, transparent);
@@ -201,31 +204,45 @@
       background: linear-gradient(90deg, transparent, #c084fc, transparent);
     }
 
-    /* Subtle hover elevation (Our Works style) */
+    /* Subtle hover elevation & shadow — copied directly from Our Works */
     .cards__card:hover {
-      transform: translateY(-6px) !important;
-      background: rgba(24, 27, 38, 0.92) !important;
-      border-color: rgba(255, 255, 255, 0.22) !important;
+      transform: translateY(-8px) !important;
+      border-color: rgba(99, 102, 241, 0.25) !important;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3), 
+        0 0 25px rgba(0, 0, 0, 0.15), 
+        0 0 30px rgba(99, 102, 241, 0.08) !important;
     }
     .cards__card.dev-card:hover {
-      box-shadow: 0 24px 50px rgba(56, 189, 248, 0.2), 0 12px 30px rgba(0, 0, 0, 0.5) !important;
-      border-color: rgba(56, 189, 248, 0.4) !important;
+      border-color: rgba(56, 189, 248, 0.35) !important;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3), 
+        0 0 25px rgba(0, 0, 0, 0.15), 
+        0 0 30px rgba(56, 189, 248, 0.12) !important;
     }
     .cards__card.design-card:hover {
-      box-shadow: 0 24px 50px rgba(244, 114, 182, 0.2), 0 12px 30px rgba(0, 0, 0, 0.5) !important;
-      border-color: rgba(244, 114, 182, 0.4) !important;
+      border-color: rgba(244, 114, 182, 0.35) !important;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3), 
+        0 0 25px rgba(0, 0, 0, 0.15), 
+        0 0 30px rgba(244, 114, 182, 0.12) !important;
     }
     .cards__card.data-ai-card:hover {
-      box-shadow: 0 24px 50px rgba(192, 132, 252, 0.2), 0 12px 30px rgba(0, 0, 0, 0.5) !important;
-      border-color: rgba(192, 132, 252, 0.4) !important;
+      border-color: rgba(192, 132, 252, 0.35) !important;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3), 
+        0 0 25px rgba(0, 0, 0, 0.15), 
+        0 0 30px rgba(192, 132, 252, 0.12) !important;
     }
 
-    /* Card body — balanced compact padding */
+    /* Card body — 35px padding matching Our Works cards */
     .cards__descr {
       flex: 1 1 auto !important;
       display: flex !important;
       flex-direction: column !important;
-      padding: 2.8rem 2.8rem 2.2rem 2.8rem !important;
+      padding: 3.2rem 3.2rem 2.4rem 3.2rem !important;
+      position: relative;
+      z-index: 1;
     }
 
     /* Category label */
@@ -236,21 +253,22 @@
       text-transform: uppercase;
       letter-spacing: 2.5px !important;
       margin-bottom: 1.4rem !important;
+      color: #374151 !important;
       transition: opacity 0.3s ease;
     }
-    .dev-card .course-category-tag { color: #38bdf8 !important; }
-    .design-card .course-category-tag { color: #f472b6 !important; }
-    .data-ai-card .course-category-tag { color: #c084fc !important; }
+    .dev-card .course-category-tag { color: #374151 !important; }
+    .design-card .course-category-tag { color: #374151 !important; }
+    .data-ai-card .course-category-tag { color: #374151 !important; }
 
     /* Icon container */
     .course-icon-container {
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 1.3rem;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.6rem;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex-shrink: 0;
     }
@@ -258,27 +276,27 @@
       transform: scale(1.06) rotate(3deg);
     }
     .dev-icon-bg {
-      background: rgba(56, 189, 248, 0.14) !important;
-      border: 1px solid rgba(56, 189, 248, 0.3) !important;
-      color: #38bdf8 !important;
+      background: rgba(56, 189, 248, 0.12) !important;
+      border: 1px solid rgba(56, 189, 248, 0.25) !important;
+      color: #0284c7 !important;
     }
     .design-icon-bg {
-      background: rgba(244, 114, 182, 0.14) !important;
-      border: 1px solid rgba(244, 114, 182, 0.3) !important;
-      color: #f472b6 !important;
+      background: rgba(244, 114, 182, 0.12) !important;
+      border: 1px solid rgba(244, 114, 182, 0.25) !important;
+      color: #db2777 !important;
     }
     .data-ai-icon-bg {
-      background: rgba(192, 132, 252, 0.14) !important;
-      border: 1px solid rgba(192, 132, 252, 0.3) !important;
-      color: #c084fc !important;
+      background: rgba(192, 132, 252, 0.12) !important;
+      border: 1px solid rgba(192, 132, 252, 0.25) !important;
+      color: #9333ea !important;
     }
 
-    /* Card title */
+    /* Card title — high contrast dark heading */
     .cards__card .cards__title {
-      font-size: 2.1rem !important;
-      font-weight: 800 !important;
+      font-size: 2.2rem !important;
+      font-weight: 700 !important;
       line-height: 1.3 !important;
-      color: #ffffff !important;
+      color: #111827 !important;
       margin-bottom: 1.2rem !important;
       word-break: normal;
       word-wrap: break-word;
@@ -286,11 +304,11 @@
       letter-spacing: -0.01em;
     }
 
-    /* Card description text */
+    /* Card description text — dark slate body text */
     .cards__card .cards__text {
       font-size: 1.45rem !important;
-      line-height: 1.65 !important;
-      color: #e2e8f0 !important;
+      line-height: 1.6 !important;
+      color: #4B5563 !important;
       font-weight: 400 !important;
       margin-bottom: 0 !important;
       flex-grow: 1 !important;
@@ -310,67 +328,97 @@
     /* Meta details section — pushed to bottom of content area */
     .course-meta-details {
       margin-top: auto !important;
-      padding-top: 1.8rem !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      padding-top: 1.6rem !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
       width: 100% !important;
     }
     .course-meta-details > div:first-child {
       display: flex !important;
       flex-wrap: wrap !important;
       gap: 0.6rem !important;
-      margin-bottom: 1.4rem !important;
+      margin-bottom: 1.2rem !important;
       width: 100% !important;
     }
 
-    /* Technology badges */
+    /* Technology badges — SaaS-style Glass Pill Badges */
     .course-badge {
       display: inline-flex !important;
       align-items: center !important;
-      padding: 0.5rem 1.3rem !important;
-      border-radius: 2rem !important;
+      padding: 0.45rem 1.3rem !important;
+      border-radius: 30px !important;
       font-size: 1.15rem !important;
       font-weight: 700 !important;
-      letter-spacing: 0.02em;
-      border: 1px solid rgba(255, 255, 255, 0.22) !important;
-      background: rgba(255, 255, 255, 0.08) !important;
-      color: #ffffff !important;
-      transition: all 0.25s ease;
+      letter-spacing: 0.03em;
       white-space: nowrap !important;
-    }
-    .cards__card.dev-card:hover .course-badge {
-      border-color: rgba(56, 189, 248, 0.4) !important;
-      color: #38bdf8 !important;
-      background: rgba(56, 189, 248, 0.12) !important;
-    }
-    .cards__card.design-card:hover .course-badge {
-      border-color: rgba(244, 114, 182, 0.4) !important;
-      color: #f472b6 !important;
-      background: rgba(244, 114, 182, 0.12) !important;
-    }
-    .cards__card.data-ai-card:hover .course-badge {
-      border-color: rgba(192, 132, 252, 0.4) !important;
-      color: #c084fc !important;
-      background: rgba(192, 132, 252, 0.12) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
     }
 
-    /* Project & Internship info panel */
+    /* Development Badges (Blue Tint & Soft Glow) */
+    .dev-card .course-badge {
+      background: rgba(14, 165, 233, 0.12) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      color: #0284c7 !important;
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.12) !important;
+    }
+    .cards__card.dev-card:hover .course-badge {
+      background: rgba(14, 165, 233, 0.22) !important;
+      border-color: rgba(56, 189, 248, 0.55) !important;
+      color: #0369a1 !important;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.28) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* Design Badges (Rose Tint & Soft Glow) */
+    .design-card .course-badge {
+      background: rgba(244, 114, 182, 0.12) !important;
+      border: 1px solid rgba(244, 114, 182, 0.3) !important;
+      color: #be185d !important;
+      box-shadow: 0 2px 8px rgba(244, 114, 182, 0.12) !important;
+    }
+    .cards__card.design-card:hover .course-badge {
+      background: rgba(244, 114, 182, 0.22) !important;
+      border-color: rgba(244, 114, 182, 0.55) !important;
+      color: #9d174d !important;
+      box-shadow: 0 4px 14px rgba(244, 114, 182, 0.28) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* Data & AI Badges (Purple Tint & Soft Glow) */
+    .data-ai-card .course-badge {
+      background: rgba(192, 132, 252, 0.12) !important;
+      border: 1px solid rgba(192, 132, 252, 0.3) !important;
+      color: #7e22ce !important;
+      box-shadow: 0 2px 8px rgba(192, 132, 252, 0.12) !important;
+    }
+    .cards__card.data-ai-card:hover .course-badge {
+      background: rgba(192, 132, 252, 0.22) !important;
+      border-color: rgba(192, 132, 252, 0.55) !important;
+      color: #6b21a8 !important;
+      box-shadow: 0 4px 14px rgba(192, 132, 252, 0.28) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* Project & Internship info panel — matching requested colors */
     .course-project-info {
       display: grid !important;
-      gap: 0.8rem !important;
-      margin-top: 1.4rem !important;
-      background: rgba(0, 0, 0, 0.3) !important;
-      padding: 1.4rem 1.6rem !important;
-      border-radius: 1.2rem !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      gap: 0.6rem !important;
+      margin-top: 1.2rem !important;
+      background: rgba(0, 0, 0, 0.03) !important;
+      padding: 1.2rem 1.6rem !important;
+      border-radius: 14px !important;
+      border: 1px solid rgba(0, 0, 0, 0.06) !important;
+      transition: all 0.3s ease;
     }
     .course-project-info div {
-      font-size: 1.35rem !important;
+      font-size: 1.3rem !important;
       line-height: 1.5 !important;
-      color: #cbd5e1 !important;
+      color: #374151 !important;
     }
     .course-project-info strong {
-      color: #ffffff !important;
-      font-weight: 800 !important;
+      color: #111827 !important;
+      font-weight: 700 !important;
       display: inline-block;
       margin-right: 0.4rem;
     }
@@ -380,13 +428,15 @@
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
-      padding: 1.8rem 2.8rem 2.2rem 2.8rem !important;
+      padding: 1.8rem 3.2rem 2.2rem 3.2rem !important;
       margin-top: auto !important;
       flex-shrink: 0 !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-      background: rgba(0, 0, 0, 0.22) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.04) !important;
+      background: rgba(0, 0, 0, 0.15) !important;
       width: 100% !important;
       box-sizing: border-box !important;
+      position: relative;
+      z-index: 1;
     }
 
     /* Duration/level chip */
@@ -397,13 +447,13 @@
       height: 38px !important;
       min-height: 38px !important;
       padding: 0 1.5rem !important;
-      border-radius: 2rem !important;
+      border-radius: 20px !important;
       font-size: 1.2rem !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.02em;
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.1) !important;
-      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.02em !important;
+      color: #374151 !important;
+      background: rgba(0, 0, 0, 0.04) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
       white-space: nowrap !important;
       flex-shrink: 0 !important;
       box-sizing: border-box !important;
@@ -418,12 +468,12 @@
       min-height: 38px !important;
       max-height: 38px !important;
       line-height: 36px !important;
-      padding: 0 2rem !important;
+      padding: 0 2.2rem !important;
       font-size: 1.25rem !important;
       font-weight: 700 !important;
-      border-radius: 2rem !important;
-      border: 1px solid rgba(255, 255, 255, 0.3) !important;
-      background: rgba(255, 255, 255, 0.08) !important;
+      border-radius: 20px !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      background: rgba(255, 255, 255, 0.06) !important;
       color: #ffffff !important;
       margin-top: 0 !important;
       flex-shrink: 0 !important;
@@ -438,7 +488,7 @@
       color: #09090b !important;
       border-color: #ffffff !important;
       transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25) !important;
     }
     .course-card-footer .btn.btn-default.popup-trigger .btn-caption {
       display: inline-block !important;
@@ -469,10 +519,28 @@
         text-align: center;
       }
       .cards__descr {
-        padding: 2.8rem 2.4rem 2.2rem 2.4rem !important;
+        padding: 2.4rem 2rem 1.8rem 2rem !important;
       }
       .course-card-footer {
-        padding: 2rem 2.4rem 2.6rem 2.4rem !important;
+        padding: 1.6rem 2rem 2rem 2rem !important;
+      }
+      .course-meta-label {
+        font-size: 1.1rem !important;
+        padding: 0 1.2rem !important;
+        height: 36px !important;
+        min-height: 36px !important;
+      }
+      .course-card-footer .btn.btn-default.popup-trigger {
+        font-size: 1.15rem !important;
+        padding: 0 1.6rem !important;
+        height: 36px !important;
+        min-height: 36px !important;
+        max-height: 36px !important;
+        line-height: 34px !important;
+      }
+      .course-badge {
+        font-size: 1.05rem !important;
+        padding: 0.35rem 1rem !important;
       }
     }
 
@@ -1197,7 +1265,7 @@
                   </div>
 
                   <!-- Dynamic Course Filter Tabs -->
-                  <div class="content__block filters-block text-center animate-in-up" style="margin-bottom: 5rem;">
+                  <div class="content__block filters-block text-center animate-in-up">
                     <div class="filter-tabs" role="group" aria-label="Filter courses by category">
                       <button class="filter-tab active" data-filter="all" aria-pressed="true">All Courses</button>
                       <button class="filter-tab" data-filter="dev" aria-pressed="false">Development</button>
@@ -1212,7 +1280,7 @@
                       <div class="row g-4 align-items-stretch cards" id="courses-grid">
 
                         <!-- Flutter Development -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="dev">
                           <div class="cards__card dev-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Development</span>
@@ -1246,7 +1314,7 @@
                         </div>
 
                         <!-- Python Programming -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="data-ai">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="data-ai">
                           <div class="cards__card data-ai-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Data &amp; AI</span>
@@ -1280,7 +1348,7 @@
                         </div>
 
                         <!-- MERN Stack Development -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="dev">
                           <div class="cards__card dev-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Development</span>
@@ -1314,7 +1382,7 @@
                         </div>
 
                         <!-- UI/UX Design -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="design">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="design">
                           <div class="cards__card design-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Design</span>
@@ -1348,7 +1416,7 @@
                         </div>
 
                         <!-- Digital Marketing -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="design">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="design">
                           <div class="cards__card design-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Marketing</span>
@@ -1382,7 +1450,7 @@
                         </div>
 
                         <!-- Cybersecurity -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="dev">
                           <div class="cards__card dev-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Security</span>
@@ -1416,7 +1484,7 @@
                         </div>
 
                         <!-- AI & Machine Learning -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="data-ai">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="data-ai">
                           <div class="cards__card data-ai-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Data & AI</span>
@@ -1450,7 +1518,7 @@
                         </div>
 
                         <!-- Data Science -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="data-ai">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="data-ai">
                           <div class="cards__card data-ai-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Data Science</span>
@@ -1484,7 +1552,7 @@
                         </div>
 
                         <!-- Java Programming -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="dev">
                           <div class="cards__card dev-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Programming</span>
@@ -1519,7 +1587,7 @@
                         </div>
 
                         <!-- Full Stack Web Development -->
-                        <div class="col-12 col-md-6 col-xl-4 cards__item grid-item animate-card-3" data-category="dev">
+                        <div class="col-12 col-md-6 col-xl-6 cards__item grid-item animate-card-3" data-category="dev">
                           <div class="cards__card dev-card d-flex flex-column justify-content-between">
                             <div class="cards__descr">
                               <span class="course-category-tag">Development</span>
@@ -3144,53 +3212,65 @@
     document.addEventListener("DOMContentLoaded", function() {
       const filterTabs = document.querySelectorAll(".filter-tabs .filter-tab");
       const courseCards = document.querySelectorAll("#courses-grid .cards__item");
+      const searchInput = document.getElementById("course-search");
+
+      let activeCategory = "all";
+
+      function performSearchAndFilter() {
+        const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
+        courseCards.forEach(card => {
+          const cardCategory = card.getAttribute("data-category") || "";
+          const cardText = card.innerText ? card.innerText.toLowerCase() : "";
+
+          const matchesCategory = (activeCategory === "all" || cardCategory === activeCategory);
+          const matchesSearch = (!searchQuery || cardText.includes(searchQuery));
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = "";
+            card.classList.remove("fade-out");
+            card.style.opacity = "1";
+            card.style.transform = "none";
+            card.style.visibility = "visible";
+            card.style.pointerEvents = "auto";
+
+            const animChildren = card.querySelectorAll(".animate-in-up, .cards__title, .cards__text, .course-meta-details");
+            animChildren.forEach(child => {
+              child.style.opacity = "1";
+              child.style.transform = "none";
+              child.style.visibility = "visible";
+            });
+          } else {
+            card.classList.add("fade-out");
+            card.style.display = "none";
+          }
+        });
+
+        if (window.ScrollTrigger) {
+          ScrollTrigger.refresh();
+        }
+      }
 
       filterTabs.forEach(tab => {
         tab.addEventListener("click", function(e) {
           e.preventDefault();
-          
-          const selectedFilter = this.getAttribute("data-filter");
+          activeCategory = this.getAttribute("data-filter") || "all";
 
-          // 1. Remove active class from EVERY tab first
           filterTabs.forEach(t => {
             t.classList.remove("active");
             t.setAttribute("aria-pressed", "false");
           });
 
-          // 2. Set active class ONLY on the clicked tab
           this.classList.add("active");
           this.setAttribute("aria-pressed", "true");
 
-          // 3. Filter course cards & force-restore all GSAP animated children
-          courseCards.forEach(card => {
-            const cardCategory = card.getAttribute("data-category");
-            if (selectedFilter === "all" || cardCategory === selectedFilter) {
-              card.style.display = "";
-              card.classList.remove("fade-out");
-              card.style.opacity = "1";
-              card.style.transform = "none";
-              card.style.visibility = "visible";
-              card.style.pointerEvents = "auto";
-
-              // Reset GSAP scrollTrigger inline styles on all child elements inside card
-              const animChildren = card.querySelectorAll(".animate-in-up, .cards__title, .cards__text, .course-meta-details");
-              animChildren.forEach(child => {
-                child.style.opacity = "1";
-                child.style.transform = "none";
-                child.style.visibility = "visible";
-              });
-            } else {
-              card.classList.add("fade-out");
-              card.style.display = "none";
-            }
-          });
-
-          // 4. Refresh ScrollTrigger layout calculations if GSAP is loaded
-          if (window.ScrollTrigger) {
-            ScrollTrigger.refresh();
-          }
+          performSearchAndFilter();
         });
       });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", performSearchAndFilter);
+      }
     });
     </script>
 
