@@ -679,6 +679,31 @@
       outline-offset: 3px !important;
     }
 
+    /* ============================================================
+       ENROLLMENT FORM SUBMIT BUTTON — RESPONSIVE MOBILE REFINEMENT
+    ============================================================ */
+    @media only screen and (max-width: 767px) {
+      .contact-form button[type="submit"],
+      #contact-form button[type="submit"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 1.2rem 2rem !important;
+        box-sizing: border-box !important;
+      }
+      .contact-form button[type="submit"] .btn-caption,
+      #contact-form button[type="submit"] .btn-caption {
+        width: 100% !important;
+        text-align: center !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+      }
+    }
+
     /* The .btn-caption inside the explore button */
     .course-card-footer .btn .btn-caption {
       position: static !important;
