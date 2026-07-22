@@ -7041,20 +7041,25 @@ form textarea:required:valid {
 
 .cards__card {
   height: 100%;
-  background-color: var(--base);
-  border: 1px solid var(--stroke-elements);
-  -moz-border-radius: var(--_radius);
-  border-radius: var(--_radius);
+  background: rgba(18, 20, 28, 0.85);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  -moz-border-radius: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.35s ease, background 0.35s ease;
 }
 
 .cards__descr {
-  padding: 2.6rem 3rem;
+  padding: 2.8rem 2.8rem 2.2rem 2.8rem;
 }
 
 @media only screen and (min-width: 1400px) {
   .cards__descr {
-    padding: 4rem 5rem 4.6rem 5rem;
+    padding: 3rem 3rem 2.4rem 3rem;
   }
 }
 
